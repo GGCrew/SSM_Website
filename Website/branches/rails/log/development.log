@@ -4,3 +4,77 @@ Started GET "/" for 127.0.0.1 at 2015-03-14 06:30:53 +0000
 Processing by Rails::WelcomeController#index as HTML
   Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (24.9ms)
 Completed 200 OK in 136ms (Views: 105.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (54.5ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateGalleries (20150314071609)
+  [1m[35m (7.3ms)[0m  CREATE TABLE `galleries` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `event_date` date, `album_url` varchar(255), `smugmug_album_id` varchar(255), `smugmug_album_key` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150314071609')
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'ssm_website_development'
+  AND fk.table_name = 'galleries'
+[0m
+  [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `galleries`
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `galleries` (`title`, `event_date`, `album_url`, `created_at`, `updated_at`) VALUES ('Wedgewood Upland Hills Bridal Show', '2014-05-11', 'http://snapshowmagic.smugmug.com/Events/Wedgewood-Upland-Hills', '2015-03-14 21:53:39.981886', '2015-03-14 21:53:39.981886')
+  [1m[36m (10.5ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20150314222524)
+  [1m[35m (18.5ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255), `password_hash` varchar(255), `password_salt` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20150314222524')
+  [1m[36m (13.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.5ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'ssm_website_development'
+  AND fk.table_name = 'galleries'
+[0m
+  [1m[35m (0.4ms)[0m  SHOW CREATE TABLE `galleries`
+  [1m[36m (0.5ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'ssm_website_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.4ms)[0m  SHOW CREATE TABLE `users`
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-14 22:31:00 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 195ms
+
+NoMethodError (undefined method `attr_accessible' for #<Class:0x00000005952540>):
+  app/models/user.rb:3:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/controllers/users_controller.rb:3:in `new'
+
+
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (12.1ms)
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (125.5ms)
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/web-console-2.1.2/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/web-console-2.1.2/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/web-console-2.1.2/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/web-console-2.1.2/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/web-console-2.1.2/lib/web_console/templates/console.js.erb within layouts/javascript (31.3ms)
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/web-console-2.1.2/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/web-console-2.1.2/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /home/randy/.rvm/gems/ruby-2.2-head@ssm_website/gems/web-console-2.1.2/lib/web_console/templates/index.html.erb (202.8ms)
