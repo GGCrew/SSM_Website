@@ -23,26 +23,35 @@
 
 		<div id="head">
 			<div class="container">
-			
+				<img src="logo.png">
+				<div class="menu">
+					<%= link_to('Home', home_path) -%>
+					<%= link_to('About', about_path) -%>
+					<%= link_to('Pricing', pricing_path) -%>
+					<%= link_to('F.A.Q.', faq_path) -%>
+					<%= link_to('Contact', contact_path) -%>
+					<%#= link_to('Testimonials', testimonials_path) -%>
+					<%= link_to('Galleries', galleries_path) -%>
+				</div>
 			</div>
 		</div>
-		
+
 		<div id="body">
 			<div class="container">
 				<%- flash.each do |name, msg| -%>
 					<%= content_tag(:div, msg, :id => "flash_#{name}") -%>
 				<%- end -%>
 
-				<%= yield -%>			
+				<%= yield -%>
 			</div>
 		</div>
-			
+
 		<div id="foot">
 			<div class="container">
-			
+
 			</div>
 		</div>
-			
-		
+
+
 	</body>
 </html>

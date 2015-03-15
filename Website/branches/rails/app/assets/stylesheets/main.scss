@@ -1,0 +1,36 @@
+body {
+	font-family: Exo2, 'Trebuchet MS', Helvetica, sans-serif;
+}
+
+#head, #foot {
+	background-color: black;
+	color: white;
+	height: 6em;
+	
+	.menu {
+		text-align: center;
+		
+		a {
+			padding: .5em 1em;
+			text-decoration: none;
+			color: white;
+			
+			&:visited, &:hover {
+				color: inherit;
+			}
+		}
+	}
+}
+
+#body {
+	background-color: white;
+	color: black;
+
+	h1 {
+	}
+}
+
+.container {
+	width: 60em;
+	margin: auto;
+}

@@ -1,19 +1,15 @@
 Rails.application.routes.draw do
-  get 'site/home'
-
-  get 'site/about'
-
-  get 'site/pricing'
-
-  get 'site/faq'
-
-  get 'site/contact'
+  get 'home'		=> 'site#home',			:as => 'home'
+  get 'about'		=> 'site#about',		:as => 'about'
+  get 'pricing'	=> 'site#pricing',	:as => 'pricing'
+  get 'faq'			=> 'site#faq',			:as => 'faq'
+  get 'contact'	=> 'site#contact',	:as => 'contact'
 
 	get 'log_out' => 'sessions#destroy', :as => 'log_out'
 	get 'log_in' => 'sessions#new', :as => 'log_in'
 	get 'sign_up' => 'users#new', :as => 'sign_up'
 
-	root :to => 'users#new'
+	root :to => 'site#home'
 
 	resources :users
 	resources :sessions
