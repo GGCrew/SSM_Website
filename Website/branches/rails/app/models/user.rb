@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
 	# Authentication code from: http://railscasts.com/episodes/250-authentication-from-scratch
-	attr_accessible :email, :password, :password_confirmation
 
 	attr_accessor :password
 	before_save :encrypt_password
