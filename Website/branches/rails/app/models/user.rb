@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	# Authentication code from: http://railscasts.com/episodes/250-authentication-from-scratch
+	# (with some updates for Rails 4, particularly the move from attr_accessible to "strong parameters")
 
 	attr_accessor :password
 	before_save :encrypt_password
