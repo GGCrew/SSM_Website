@@ -29,6 +29,27 @@ body {
 	h1 {
 		font-weight: bold;
 	}
+
+	table {
+		thead {
+			th {
+			}
+		}
+		
+		tbody {
+			vertical-align: top;
+			
+			th, td {
+				height: 2em;
+			}
+			
+			th {
+			}
+			
+			td {
+			}
+		}
+	}
 }
 
 .container {
