@@ -34,14 +34,24 @@ body {
 	.menu {
 		text-align: center;
 		width: 100%;
+		color: white;
 
 		a {
-			padding: .5em 1em;
+			padding: .25em 1em;
 			text-decoration: none;
-			color: white;
+			color: inherit;
+			display: inline-block;
+			width: 6em;
+			border: 1px solid black;
+			border-radius: 1em;
 
 			&:visited, &:hover {
 				color: inherit;
+			}
+
+			&:hover, &.selected {
+				background-color: gray;
+				border-color: dimgray;
 			}
 		}
 	}

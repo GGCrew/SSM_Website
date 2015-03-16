@@ -33,13 +33,13 @@
 					</div>
 				</div>
 				<div class="menu">
-					<%= link_to('Home', home_path) -%>
-					<%= link_to('About', about_path) -%>
-					<%= link_to('Pricing', pricing_path) -%>
-					<%= link_to('F.A.Q.', faq_path) -%>
-					<%= link_to('Contact', contact_path) -%>
-					<%#= link_to('Testimonials', testimonials_path) -%>
-					<%= link_to('Galleries', galleries_path) -%>
+					<%= link_to('Home',					home_path,					{class: "#{@selected_menu_item=='home'					? 'selected' : nil}"}) -%>
+					<%= link_to('About',				about_path,					{class: "#{@selected_menu_item=='about'					? 'selected' : nil}"}) -%>
+					<%= link_to('Pricing',			pricing_path,				{class: "#{@selected_menu_item=='pricing'				? 'selected' : nil}"}) -%>
+					<%= link_to('F.A.Q.',				faq_path,						{class: "#{@selected_menu_item=='faq'						? 'selected' : nil}"}) -%>
+					<%= link_to('Contact',			contact_path,				{class: "#{@selected_menu_item=='contact'				? 'selected' : nil}"}) -%>
+					<%= link_to('Testimonials',	'testimonials_path',	{class: "#{@selected_menu_item=='testimonials'	? 'selected' : nil}"}) -%>
+					<%= link_to('Galleries',		galleries_path,			{class: "#{@selected_menu_item=='galleries'			? 'selected' : nil}"}) -%>
 				</div>
 			</div>
 		</div>
@@ -49,6 +49,8 @@
 				<%- flash.each do |name, msg| -%>
 					<%= content_tag(:div, msg, :id => "flash_#{name}") -%>
 				<%- end -%>
+
+				<%#= debug(params) -%>
 
 				<%= yield -%>
 			</div>
