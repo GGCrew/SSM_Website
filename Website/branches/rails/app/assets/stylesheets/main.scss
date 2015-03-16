@@ -1,20 +1,41 @@
 body {
+	margin: 0;
+	padding: 0;
 	font-family: Exo2, 'Trebuchet MS', Helvetica, sans-serif;
 }
 
 #head, #foot {
 	background-color: black;
 	color: white;
-	height: 6em;
-	
+	padding: 1em;
+
+	.banner {
+		margin: 0 0 1em 0;
+
+		.image {
+			background-color: white;
+			position: relative;
+			left: 13%;
+		}
+
+		.text {
+			display: inline-block;
+			position: relative;
+			left: 14%;
+			font-size: 1.6em;
+			vertical-align: top;
+		}
+	}
+
 	.menu {
 		text-align: center;
-		
+		width: 100%;
+
 		a {
 			padding: .5em 1em;
 			text-decoration: none;
 			color: white;
-			
+
 			&:visited, &:hover {
 				color: inherit;
 			}
@@ -31,27 +52,42 @@ body {
 	}
 
 	table {
+		border-collapse: collapse;
+		margin: 0 0 0 2em;
+
 		thead {
 			th {
+				border: .1em solid #CCCCCC;
 			}
 		}
-		
+
 		tbody {
 			vertical-align: top;
-			
-			th, td {
-				height: 2em;
-			}
-			
-			th {
-			}
-			
-			td {
-				ul {
-					margin: 0;
-					padding: 0 0 0 1em;
 
-					li {
+			tr {
+				&.odd {
+					background-color: #FFFFFF;
+				}
+
+				&.even {
+					background-color: #FAFAFA;
+				}
+
+				th, td {
+					border: .1em solid #CCCCCC;
+					padding: .5em 1em;
+				}
+
+				th {
+				}
+
+				td {
+					ul {
+						margin: 0;
+						padding: 0 0 0 1em;
+
+						li {
+						}
 					}
 				}
 			}
@@ -62,4 +98,5 @@ body {
 .container {
 	width: 60em;
 	margin: auto;
+	position: relative;
 }

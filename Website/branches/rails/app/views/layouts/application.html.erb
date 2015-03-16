@@ -23,7 +23,15 @@
 
 		<div id="head">
 			<div class="container">
-				<img src="logo.png">
+				<div class="banner">
+					<%= link_to(image_tag('logo.png', class: 'image'),
+											root_path) -%>
+					<div class="text">
+							<span class="animate" data-order="1">Your event.<br></span>
+							<span class="animate" data-order="2">Your guests.<br></span>
+							<span class="animate" data-order="3">Everyone's memories.</span>
+					</div>
+				</div>
 				<div class="menu">
 					<%= link_to('Home', home_path) -%>
 					<%= link_to('About', about_path) -%>
