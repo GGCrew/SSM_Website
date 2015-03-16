@@ -114,6 +114,28 @@ body {
 				}
 			}
 		}
+		
+		&.contact {
+			border: none;
+			
+			tbody {
+				tr {
+					td, th {
+						border-style: none;
+
+						a {
+							color: inherit;
+							text-decoration: none;
+
+							&:visited, &:hover {
+								color: inherit;		
+							}
+						}
+					}
+				}
+			}
+		
+		}
 	}
 }
 
@@ -122,3 +144,4 @@ body {
 	margin: auto;
 	position: relative;
 }
+
