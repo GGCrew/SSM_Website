@@ -50,6 +50,10 @@
 					<%= content_tag(:div, msg, :id => "flash_#{name}") -%>
 				<%- end -%>
 
+				<%- if notice -%>
+					<p id="notice"><%= notice %></p>
+				<%- end -%>
+
 				<%#= debug(params) -%>
 
 				<%= yield -%>
