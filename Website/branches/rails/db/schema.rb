@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314222524) do
+ActiveRecord::Schema.define(version: 20150317000001) do
 
   create_table "galleries", force: :cascade do |t|
     t.string   "title",             limit: 255
