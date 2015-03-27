@@ -23,15 +23,6 @@
 
 		<div id="head">
 			<div class="container">
-				<div class="banner">
-					<%= link_to(image_tag('logo.png', class: 'image'),
-											root_path) -%>
-					<div class="text">
-							<span class="animate" data-order="1">Your event.<br></span>
-							<span class="animate" data-order="2">Your guests.<br></span>
-							<span class="animate" data-order="3">Everyone's memories.</span>
-					</div>
-				</div>
 				<div class="menu">
 					<%= link_to('Home',					home_path,					{class: "#{@selected_menu_item=='home'					? 'selected' : nil}"}) -%>
 					<%= link_to('Contact',			contact_path,				{class: "#{@selected_menu_item=='contact'				? 'selected' : nil}"}) -%>
