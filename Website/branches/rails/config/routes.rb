@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'pricing'	=> 'site#pricing',	:as => 'pricing'
   get 'faq'			=> 'site#faq',			:as => 'faq'
   get 'contact'	=> 'site#contact',	:as => 'contact'
+  get 'history'	=> 'site#history',	:as => 'history'
 
 	get 'log_out' => 'sessions#destroy', :as => 'log_out'
 	get 'log_in' => 'sessions#new', :as => 'log_in'
