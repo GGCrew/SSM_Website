@@ -261,7 +261,14 @@ body {
 					}
 				}
 			}
-		
+		}
+
+		&.servicearea {
+			margin: 0;
+
+			th, td {
+				border: none;
+			}
 		}
 	}
 }
@@ -272,3 +279,9 @@ body {
 	position: relative;
 }
 
+#service-area-map-canvas {
+	height: 22em;
+	width: 23em;
+	border: 1px solid #0700FF;
+	border-radius: 1em;
+}
