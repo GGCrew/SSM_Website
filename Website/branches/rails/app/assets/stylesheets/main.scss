@@ -86,13 +86,9 @@ body {
 				.logo {
 					background-color: white;
 					position: relative;
-					left: 13%;
-					top: 35%;
-				}
-
-				.text {
-					left: 14%;
-					top: 35%;
+					left: 10%;
+					top: 30%;
+					width: 80%;
 				}
 			}
 
@@ -177,6 +173,23 @@ body {
 					top: 35%;
 					left: 70%;
 					position: absolute;
+				}
+			}
+			
+			&#slide4 {
+				display: none;
+
+				.logo {
+					background-color: white;
+					position: relative;
+					left: 13%;
+					top: 35%;
+					width: 50%;
+				}
+
+				.text {
+					left: 14%;
+					top: 35%;
 				}
 			}
 		}

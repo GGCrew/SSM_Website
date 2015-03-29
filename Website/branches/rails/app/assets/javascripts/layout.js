@@ -1,37 +1,23 @@
-//$(document).ready(function() {
-//	var banner_text = $('#head .banner .text .animate');
-//	$(banner_text).hide();
-//	$(banner_text).css('top', '.5em');
-//	$(banner_text).each(function(index, item) {
-//		$(item)
-//			.delay((index + 1) * 1000)
-//			.animate({
-//				top: '0em',
-//				opacity: 'toggle'
-//			}, {
-//				duration: 'slow',
-//				easing: 'swing',
-//				queue: true
-//			})
-//	});
-//});
+$(document).ready(function() {
+	display_slide(1, true);
+});
 
 
-function display_slide(slideNumber) {
+function display_slide(slideNumber, playNextSlide) {
 	switch(slideNumber) {
 		case 1:
 			var slide = $('.screen #slide1');
 			var image = $(slide).find('img.logo');
-			var text = $(slide).find('.text .animate');
 
+			// clear other slides
 			$('.screen .slide').hide();
 			$('.screen .slide').removeClass('current');
 
+			// set this slide's starting positions
 			$(slide).addClass('current');
 			$(image).hide();
-			$(text).hide();
-			$(text).css('top', '.5em');
-			
+
+			// away we go!
 			$(slide).show();
 
 			$(image).animate({
@@ -42,18 +28,18 @@ function display_slide(slideNumber) {
 				queue: false
 			});
 
-			$(text).each(function(index, item) {
-				$(item)
-					.delay((index + 1) * 1000)
-					.animate({
-						top: '0em',
-						opacity: 'show'
-					}, {
-						duration: 'slow',
-						easing: 'swing',
-						queue: true
-					})
-			});
+			if(playNextSlide) {
+				$(slide)
+					.delay(2000)	// arbitrarily long delay 
+					.animate(
+						{top: '0'},	// no effect
+						{
+							duration: 0,
+							queue: true,
+							complete: function(){display_slide(2, true);}
+						}
+					);
+			}
 
 			break;
 
@@ -93,6 +79,18 @@ function display_slide(slideNumber) {
 					})
 			});
 
+			if(playNextSlide) {
+				$(slide)
+					.delay(6000)	// arbitrarily long delay 
+					.animate(
+						{top: '0'},	// no effect
+						{
+							duration: 0,
+							queue: true,
+							complete: function(){display_slide(3, true);}
+						}
+					);
+			}
 			break;
 
 		case 3:
@@ -191,6 +189,8 @@ function display_slide(slideNumber) {
 											$(screen_video).css({top: '370px', height: '0px'});
 											$(slideshow).css({top: '70px', left: '700px', width: '44px', height: '34px'});
 											$(slideshow).hide();
+											$(slideshow).find('img.sample').hide();
+											$(slideshow).find('img.sample').first().show();
 
 											$(screen).show();
 
@@ -251,7 +251,28 @@ function display_slide(slideNumber) {
 												}, {
 													duration: 'slow',
 													easing: 'swing',
-													queue: true
+													queue: true,
+													complete: function() {
+														var slide = $('.screen #slide3');
+														var slideshow = $(slide).find('#slideshow');
+														var slideshow_images = $(slideshow).find('img.sample');
+													
+														$(slideshow_images).each(function(index, item) {
+															if(item !== $(item).parent().children().last()[0]) {
+																$(item)
+																.delay((index + 0) * 2000)
+																.animate({opacity: 'show'}, {duration: 'fast', easing: 'linear', queue: true})
+																.delay(2000)
+																.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true})
+															} else {
+																$(item)
+																.delay((index + 0) * 2000)
+																.animate({opacity: 'show'}, {duration: 'fast', easing: 'linear', queue: true})
+																.delay(2000)
+																.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true, complete: function(){display_slide(4, true)}})
+															}
+														});
+													}
 												})
 											
 										}
@@ -262,6 +283,53 @@ function display_slide(slideNumber) {
 				});
 
 			
+			break;
+
+		case 4:
+			var slide = $('.screen #slide4');
+			var image = $(slide).find('img.logo');
+			var text = $(slide).find('.text .animate');
+
+			// clear other slides
+			$('.screen .slide').hide();
+			$('.screen .slide').removeClass('current');
+
+			// set this slide's starting positions
+			$(slide).addClass('current');
+			$(image).hide();
+			$(text).hide();
+			$(text).css('top', '.5em');
+
+			// away we go!
+			$(slide).show();
+
+			$(image)
+				.delay(1000)
+				.animate({
+					opacity: 'show'
+				}, {
+					duration: 'slow',
+					easing: 'swing',
+					queue: true
+				});
+
+			$(text).each(function(index, item) {
+				$(item)
+					.delay((index + 2) * 1000)
+					.animate({
+						top: '0em',
+						opacity: 'show'
+					}, {
+						duration: 'slow',
+						easing: 'swing',
+						queue: true
+					})
+			});
+
+			if(playNextSlide) {
+				// NOP
+			}
+
 			break;
 	}
 }
