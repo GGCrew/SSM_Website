@@ -24,13 +24,14 @@
 		<div id="head">
 			<div class="container">
 				<div class="menu">
-					<%= link_to('Home',					home_path,					{class: "#{@selected_menu_item=='home'					? 'selected' : nil}"}) -%>
-					<%= link_to('Contact',			contact_path,				{class: "#{@selected_menu_item=='contact'				? 'selected' : nil}"}) -%>
+					<%= link_to('Home',					home_path,						{class: "#{@selected_menu_item=='home'					? 'selected' : nil}"}) -%>
+					<%= link_to('About',				about_path,						{class: "#{@selected_menu_item=='about'					? 'selected' : nil}"}) -%>
+					<%= link_to('Contact',			contact_path,					{class: "#{@selected_menu_item=='contact'				? 'selected' : nil}"}) -%>
 					<%= link_to('Testimonials',	'testimonials_path',	{class: "#{@selected_menu_item=='testimonials'	? 'selected' : nil}"}) -%>
-					<%= link_to('F.A.Q.',				faq_path,						{class: "#{@selected_menu_item=='faq'						? 'selected' : nil}"}) -%>
-					<%#= link_to('Pricing',			pricing_path,				{class: "#{@selected_menu_item=='pricing'				? 'selected' : nil}"}) -%>
-					<%= link_to('Galleries',		galleries_path,			{class: "#{@selected_menu_item=='galleries'			? 'selected' : nil}"}) -%>
-					<%= link_to('About',				about_path,					{class: "#{@selected_menu_item=='about'					? 'selected' : nil}"}) -%>
+					<%= link_to('F.A.Q.',				faq_path,							{class: "#{@selected_menu_item=='faq'						? 'selected' : nil}"}) -%>
+					<%= link_to('Galleries',		galleries_path,				{class: "#{@selected_menu_item=='galleries'			? 'selected' : nil}"}) -%>
+					<%#= link_to('Pricing',			pricing_path,					{class: "#{@selected_menu_item=='pricing'				? 'selected' : nil}"}) -%>
+					<%#= link_to('History',			history_path,					{class: "#{@selected_menu_item=='history'				? 'selected' : nil}"}) -%>
 				</div>
 			</div>
 		</div>
