@@ -29,7 +29,7 @@
 			<%= image_tag('06b.jpg', class: 'sample', style: 'top: -20px;') -%>
 		</div>
 		<div class="text">
-			<span class="animate" data-order="1">Our digital cameras.<br></span>
+			<span class="animate" data-order="1">Digital cameras.<br></span>
 			<span class="animate" data-order="2">Wireless magic.<br></span>
 			<span class="animate" data-order="3">Live slideshow.</span>
 		</div>
@@ -47,6 +47,7 @@
 
 <%= javascript_tag do -%>
 	$(document).ready(function() {
-		display_slide(1, true);
+		//display_slide(1, true);
+		$('#slide1 .logo').on('load', function(){display_slide(1, true);});
 	});
 <%- end -%>
