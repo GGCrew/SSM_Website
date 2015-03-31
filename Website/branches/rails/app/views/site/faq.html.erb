@@ -107,3 +107,27 @@
 		</table>
 	</dd>
 </dl>
+
+
+<%= javascript_tag do -%>
+	$(document).ready(function() {
+		var rArrow = '&#x25BA;';
+		var dArrow = '&#x25BC;';
+		$('dl#faq dd').hide();
+		$('dl#faq dt').css('cursor', 'pointer');
+		$('dl#faq dt').prepend('<span class="bullet">' + rArrow + '</span>');
+		$('dl#faq dt').on('click', function(){
+			var bullet = (!$(this).data('open') ? dArrow : rArrow);
+			$(this).data('open', !$(this).data('open'));
+			$(this).find('.bullet').html(bullet);
+
+			var map = $(this).next('dd').find('td.map')[0];
+			if(map === undefined) {
+				$(this).next('dd').toggle({duration: 'fast'});
+			} else {
+				$(this).next('dd').toggle({duration: 'fast', complete: function(){if(!$(this).data('rendered')){display_service_area_map(7); $(this).data('rendered', true);}}});
+			}
+		});
+		$('dl#faq dt').first().click();
+	});
+<%- end -%>
