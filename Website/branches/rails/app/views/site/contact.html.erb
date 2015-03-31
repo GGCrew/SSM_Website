@@ -30,37 +30,14 @@
 					That covers San Diego to Barstow, Thousand Oaks to Indio!<br>
 				</p>
 			</td>
-			<td>
+			<td class="map">
 				<div id="service-area-map-canvas"></div>
+				Approximate service area
+				<%= javascript_tag do -%>
+					google.maps.event.addDomListener(window, 'load', display_service_area_map(7));
+				<%- end -%>
 			</td>
 		</tr>
 	</tbody>
 </table>
 
-<%= javascript_tag do -%>
-      function initialize() {
-        var mapOptions = {
-          center: { lat: 33.931, lng: -117.5},
-          zoom: 7
-        };
-        var map = new google.maps.Map(document.getElementById('service-area-map-canvas'),
-            mapOptions);
-
-					// radius is measured in meters; ~1609m/mile
-				 var serviceAreaOptions = {
-						strokeColor: '#0000FF',
-						strokeOpacity: 0.8,
-						strokeWeight: 2,
-						fillColor: '#0000FF',
-						fillOpacity: 0.35,
-						map: map,
-						center: { lat: 33.931, lng: -117.549},
-						radius: (1609 * 90)
-					};
-					// Add the circle for this city to the map.
-					serviceAreaCircle = new google.maps.Circle(serviceAreaOptions);
-
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-
-<%- end -%>

@@ -1,8 +1,3 @@
-//$(document).ready(function() {
-//	display_slide(1, true);
-//});
-
-
 function display_slide(slideNumber, playNextSlide) {
 	switch(slideNumber) {
 		case 1:
@@ -339,3 +334,74 @@ function display_slide(slideNumber, playNextSlide) {
 			break;
 	}
 }
+
+
+function display_service_area_map(zoomLevel) {
+	// Requires the Google Maps API
+	var mapOptions = {
+		center: { lat: 33.931, lng: -117.5},
+		zoom: zoomLevel
+	};
+	var map = new google.maps.Map(document.getElementById('service-area-map-canvas'),
+			mapOptions);
+
+	// radius is measured in meters; ~1609m/mile
+	var serviceAreaOptions = {
+		strokeColor: '#0700FF',
+		strokeOpacity: 0.8,
+		strokeWeight: 2,
+		fillColor: '#0700FF',
+		fillOpacity: 0.1,
+		map: map,
+		center: { lat: 33.931, lng: -117.549},
+		radius: (1609 * 90)
+	};
+	// Add the circle for this city to the map.
+	serviceAreaCircle = new google.maps.Circle(serviceAreaOptions);
+
+	// Optionally add current position to map
+	navigator.geolocation.getCurrentPosition(function(position) {
+		var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		var symbolOptions = {
+		strokeColor: '#0700FF',
+		strokeOpacity: 0.8,
+		strokeWeight: 1,
+		fillColor: '#0700FF',
+		fillOpacity: 0.3,
+		scale: 5,
+		path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW
+		};
+
+		var markerOptions = {
+			position: geolocate,
+			title: 'Your current location (give or take)',
+			icon: symbolOptions,
+			map: map
+		};
+		// Add the marker to the map
+		var marker = new google.maps.Marker(markerOptions);
+	});
+}
+
+
+$(document).ready(function() {
+	var rArrow = '&#x25BA;';
+	var dArrow = '&#x25BC;';
+	$('dl#faq dd').hide();
+	$('dl#faq dt').css('cursor', 'pointer');
+	$('dl#faq dt').prepend('<span class="bullet">' + rArrow + '</span>');
+	$('dl#faq dt').on('click', function(){
+		var bullet = (!$(this).data('open') ? dArrow : rArrow);
+		$(this).data('open', !$(this).data('open'));
+		$(this).find('.bullet').html(bullet);
+
+		var map = $(this).next('dd').find('td.map')[0];
+		if(map === undefined) {
+			$(this).next('dd').toggle({duration: 'fast'});
+		} else {
+			$(this).next('dd').toggle({duration: 'fast', complete: function(){if(!$(this).data('rendered')){display_service_area_map(7); $(this).data('rendered', true);}}});
+		}
+	});
+	$('dl#faq dt').first().click();
+});
+

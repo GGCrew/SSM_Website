@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: Exo2, 'Trebuchet MS', Helvetica, sans-serif;
+	background-color: #000070;
 }
 
 #head {
@@ -276,6 +277,23 @@ body {
 
 			th, td {
 				border: none;
+
+				&.map {
+					text-align: center;
+					font-style: italic;
+				}
+			}
+		}
+	}
+
+	dl {
+	
+		&#faq {
+			dt {
+				margin-top: 1em;
+			}
+			
+			dd {
 			}
 		}
 	}
