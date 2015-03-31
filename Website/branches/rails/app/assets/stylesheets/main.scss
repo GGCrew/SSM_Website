@@ -324,6 +324,22 @@ body {
 			}
 		}
 	}
+
+	blockquote {
+	
+		&.testimonial {
+			margin-left: 1em;
+			margin-bottom: 2em;
+			padding-left: 1em;
+			//border-left: 1px solid;
+			font-style: italic;
+			
+			span {
+				font-style: normal;
+				padding-left: 1em;
+			}
+		}
+	}
 }
 
 .container {

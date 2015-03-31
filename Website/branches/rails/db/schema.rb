@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317000002) do
+ActiveRecord::Schema.define(version: 20150331000002) do
 
   create_table "galleries", force: :cascade do |t|
     t.string   "title",             limit: 255
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20150317000002) do
     t.string   "smugmug_album_key", limit: 255
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+  end
+
+  create_table "testimonials", force: :cascade do |t|
+    t.string   "from",       limit: 255
+    t.text     "quote",      limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|
