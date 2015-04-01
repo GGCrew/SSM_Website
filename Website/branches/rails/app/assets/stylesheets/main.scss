@@ -121,6 +121,7 @@ body {
 			&#slide3 {
 				display: none;
 
+/*
 				#camera {
 						top: 0;
 						left: 0;
@@ -136,6 +137,34 @@ body {
 						height: 400px;
 						position: absolute;
 					}
+				}
+*/
+
+				#cameras {
+					img {
+						position: absolute;
+						
+						&.camera {
+							&[data-order="1"] {	top: 50px;	left: 50px;		}
+							&[data-order="2"] {	top: 135px;	left: 180px;	}
+							&[data-order="3"] {	top: 265px;	left: 275px;	}
+							&[data-order="4"] {	top: 205px;	left: 450px;	}
+							&[data-order="5"] {	top: 80px;	left: 380px;	}
+							&[data-order="6"] {	top: 250px;	left: 85px;		}
+						}
+						
+						&.flash {
+							display: none;
+							top: 0px;
+							left: 0px;
+						}
+					}
+
+					
+				}
+
+				#wireless {
+					display: none;
 				}
 
 				#screen {
