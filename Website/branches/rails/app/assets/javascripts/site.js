@@ -137,14 +137,12 @@ function display_slide(slideNumber, playNextSlide) {
 
 						for(var counter = 0; counter < cameras.length; counter++) {
 							$(flash)
-								.animate({top: +$(cameras[counter]).css('top') - 90, left: +$(cameras[counter]).css('left') - 25}, {duration: 100, queue: true})
+								.animate({top: parseInt($(cameras[counter]).css('top')) - 90 + 'px', left: parseInt($(cameras[counter]).css('left')) - 25 + 'px'}, {duration: 100, queue: true})
 								.animate({opacity: 'show'}, {duration: 10, queue: true})
+								.delay(100)
 								.animate({opacity: 'hide'}, {duration: 10, queue: true})
 						}
 						
-						//$(flash)
-						//	.css({top: 
-							
 						//$(camera_image)
 						//	.animate({
 						//		top: '-104px',
