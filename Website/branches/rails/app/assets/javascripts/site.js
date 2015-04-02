@@ -142,7 +142,7 @@ function display_slide(slideNumber, playNextSlide) {
 							};
 							if(counter != (cameras.length - 1)) {
 									$(flash)
-										.animate(flashPosition, {duration: 100, queue: true})
+										.animate(flashPosition, {duration: 50, queue: true})
 										.animate({opacity: 'show'}, {duration: 10, queue: true})
 										.delay(100)
 										.animate({opacity: 'hide'}, {duration: 10, queue: true});
@@ -163,11 +163,10 @@ function display_slide(slideNumber, playNextSlide) {
 													var cameras = $(cameraContainer).find('.camera');
 													var pictureContainer = $(slide).find('#wireless');
 													var pictures = $(pictureContainer).find('.sample');
+													var antenna = $(pictureContainer).find('.antenna');
 													var text = $(slide).find('.text .animate');
 													var wirelessText = $(text).filter('[data-order=2]');
 
-													$(pictureContainer).show();
-													
 													// position pictures
 													for(var counter = 0; counter < pictures.length; counter++) {
 														var pictureCSS = {
@@ -179,7 +178,10 @@ function display_slide(slideNumber, playNextSlide) {
 														$(pictures[counter]).css(pictureCSS);
 														$(pictures[counter]).show();
 													}
-													
+													$(antenna).hide();
+
+													$(pictureContainer).show();
+
 													$(wirelessText)
 														.animate({
 															top: '0em',
@@ -189,7 +191,18 @@ function display_slide(slideNumber, playNextSlide) {
 															easing: 'swing',
 															queue: true
 														});
-													
+
+													$(antenna)
+														.delay('slow')
+														.animate(
+															{opacity: 'show'},
+															{
+																duration: 'slow',
+																easing: 'swing',
+																queue: true
+															}
+														);
+
 													$(cameraContainer)
 														.delay('slow')
 														.animate(
@@ -202,16 +215,18 @@ function display_slide(slideNumber, playNextSlide) {
 																	var slide = $('.screen #slide3');
 																	var pictureContainer = $(slide).find('#wireless');
 																	var pictures = $(pictureContainer).find('.sample');
+																	var antenna = $(pictureContainer).find('.antenna');
 																	
 																	for(var counter = 0; counter < $(pictures).length; counter++) {
-																		var offset = counter * 5;
-																		$(pictures[counter]).css({zIndex: $(pictures).length - counter});
+																		var offset = counter * 0;
+																		//$(pictures[counter]).css({zIndex: $(pictures).length - counter});
 																		if(counter != $(pictures).length - 1) {
 																			$(pictures[counter])
 																				.animate(
 																					{
 																						top: 75 - offset + 'px',
-																						left: 650 + offset + 'px'
+																						left: 650 + offset + 'px',
+																						opacity: 'hide'
 																					},
 																					{
 																						duration: 'slow',
@@ -224,7 +239,8 @@ function display_slide(slideNumber, playNextSlide) {
 																				.animate(
 																					{
 																						top: 75 - offset + 'px',
-																						left: 650 + offset + 'px'
+																						left: 650 + offset + 'px',
+																						opacity: 'hide'
 																					},
 																					{
 																						duration: 'slow',
@@ -232,7 +248,7 @@ function display_slide(slideNumber, playNextSlide) {
 																						queue: true,
 																						complete: function () {
 																							var slide = $('.screen #slide3');
-																							var camera = $(slide).find('#camera');
+																							var wireless = $(slide).find('#wireless');
 																							var screen = $(slide).find('#screen');
 																							var screen_video = $(screen).find('img.video');
 																							var screen_tube = $(screen).find('img.tube');
@@ -256,80 +272,87 @@ function display_slide(slideNumber, playNextSlide) {
 																								}, {
 																									duration: 'slow',
 																									easing: 'swing',
-																									queue: true
-																								});
-																							$(screen_tube)
-																								.delay('slow')
-																								.animate({
-																									top: '-=100'
-																								}, {
-																									duration: 'slow',
-																									easing: 'swing',
-																									queue: true
-																								})
-																							$(screen_video)
-																								.delay('slow')
-																								.delay('slow')
-																								.animate({
-																									top: '0px',
-																									height: '370px'
-																								}, {
-																									duration: 'slow',
-																									easing: 'swing',
-																									queue: true
-																								})
-																							$(camera)
-																								.delay('slow')
-																								.delay('slow')
-																								.delay('slow')
-																								.animate({
-																									top: '25px',
-																									left: '11px',
-																									width: '578px',
-																									height: '338px',
-																									opacity: 'hide'
-																								}, {
-																									duration: 'slow',
-																									easing: 'swing',
-																									queue: true
-																								})
-																							$(slideshow)
-																								.delay('slow')
-																								.delay('slow')
-																								.delay('slow')
-																								.animate({
-																									top: '25px',
-																									left: '11px',
-																									width: '578px',
-																									height: '338px',
-																									opacity: 'show'
-																								}, {
-																									duration: 'slow',
-																									easing: 'swing',
 																									queue: true,
 																									complete: function() {
 																										var slide = $('.screen #slide3');
-																										var slideshow = $(slide).find('#slideshow');
-																										var slideshow_images = $(slideshow).find('img.sample');
-																									
-																										$(slideshow_images).each(function(index, item) {
-																											if(item !== $(item).parent().children().last()[0]) {
-																												$(item)
-																												.delay((index + 0) * 2000)
-																												.animate({opacity: 'show'}, {duration: 'fast', easing: 'linear', queue: true})
-																												.delay(2000)
-																												.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true})
-																											} else {
-																												$(item)
-																												.delay((index + 0) * 2000)
-																												.animate({opacity: 'show'}, {duration: 'fast', easing: 'linear', queue: true})
-																												.delay(2000)
-																												.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true, complete: function(){var slide = $('.screen #slide3'); $(slide).animate({opacity: 'hide'}, {duration: 'slow', easing: 'linear', queue: true, complete: function(){display_slide(4, true);}});}})
-																											}
-																										});
+																										var screen = $(slide).find('#screen');
+																										var screen_tube = $(screen).find('img.tube');
+
+																										$(screen_tube)
+																											.animate({
+																												top: '-=100'
+																											}, {
+																												duration: 'slow',
+																												easing: 'swing',
+																												queue: true,
+																												complete: function() {
+																													var slide = $('.screen #slide3');
+																													var screen = $(slide).find('#screen');
+																													var screen_video = $(screen).find('img.video');
+																													$(screen_video)
+																														.animate({
+																															top: '0px',
+																															height: '370px'
+																														}, {
+																															duration: 'slow',
+																															easing: 'swing',
+																															queue: true,
+																															complete: function() {
+																																var slide = $('.screen #slide3');
+																																var wireless = $(slide).find('#wireless');
+																																var slideshow = $(slide).find('#slideshow');
+																																$(wireless)
+																																	.animate({
+																																		//top: '70px',
+																																		//left: '-400px',
+																																		//width: '578px',
+																																		//height: '338px',
+																																		opacity: 'hide'
+																																	}, {
+																																		duration: 'slow',
+																																		easing: 'swing',
+																																		queue: true
+																																	})
+																																$(slideshow)
+																																	.animate({
+																																		top: '25px',
+																																		left: '11px',
+																																		width: '578px',
+																																		height: '338px',
+																																		opacity: 'show'
+																																	}, {
+																																		duration: 'slow',
+																																		easing: 'swing',
+																																		queue: true,
+																																		complete: function() {
+																																			var slide = $('.screen #slide3');
+																																			var slideshow = $(slide).find('#slideshow');
+																																			var slideshow_images = $(slideshow).find('img.sample');
+																																			var delay = 1000;
+																																		
+																																			$(slideshow_images).each(function(index, item) {
+																																				if(item !== $(item).parent().children().last()[0]) {
+																																					$(item)
+																																					.delay((index + 0) * delay)
+																																					.animate({opacity: 'show'}, {duration: 'fast', easing: 'linear', queue: true})
+																																					.delay(delay)
+																																					.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true})
+																																				} else {
+																																					$(item)
+																																					.delay((index + 0) * delay)
+																																					.animate({opacity: 'show'}, {duration: 'fast', easing: 'linear', queue: true})
+																																					.delay(delay)
+																																					.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true, complete: function(){var slide = $('.screen #slide3'); $(slide).animate({opacity: 'hide'}, {duration: 'slow', easing: 'linear', queue: true, complete: function(){display_slide(4, true);}});}})
+																																				}
+																																			});
+																																		}
+																																	})
+																															}
+																														})
+																												}
+																											})
 																									}
-																								})
-																							
+																								});																							
 																						}
 																					}
 																				);
