@@ -167,6 +167,11 @@ body {
 
 				#wireless {
 					display: none;
+					
+					img.sample {
+						position: absolute;
+						width: 100%;
+					}
 				}
 
 				#screen {
