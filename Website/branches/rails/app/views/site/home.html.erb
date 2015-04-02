@@ -14,12 +14,12 @@
 	
 	<div class="slide" id="slide3">
 		<div id="wireless">
-			<%= image_tag('01b.jpg',			class: 'sample', data: {order: 1}) -%>
-			<%= image_tag('02b.jpg',			class: 'sample', data: {order: 2}) -%>
-			<%= image_tag('03b.jpg',			class: 'sample', data: {order: 3}) -%>
-			<%= image_tag('04b.jpg',			class: 'sample', data: {order: 4}) -%>
-			<%= image_tag('05b.jpg',			class: 'sample', data: {order: 5}) -%>
-			<%= image_tag('06b.jpg',			class: 'sample', data: {order: 6}) -%>
+			<%= image_tag('01b_thumbnail.jpg', class: 'sample', data: {order: 1}) -%>
+			<%= image_tag('02b_thumbnail.jpg', class: 'sample', data: {order: 2}) -%>
+			<%= image_tag('03b_thumbnail.jpg', class: 'sample', data: {order: 3}) -%>
+			<%= image_tag('04b_thumbnail.jpg', class: 'sample', data: {order: 4}) -%>
+			<%= image_tag('05b_thumbnail.jpg', class: 'sample', data: {order: 5}) -%>
+			<%= image_tag('06b_thumbnail.jpg', class: 'sample', data: {order: 6}) -%>
 			<%= image_tag('antenna.png',	class: 'antenna') -%>
 		</div>
 		<div id="cameras">
@@ -63,6 +63,6 @@
 <%= javascript_tag do -%>
 	$(document).ready(function() {
 		//display_slide(1, true);
-		$('#slide1 .logo').on('load', function(){display_slide(3, false);});
+		$('#slide1 .logo').on('load', function(){display_slide(1, true);});
 	});
 <%- end -%>
