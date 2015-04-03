@@ -325,7 +325,56 @@ function display_slide(slideNumber, playNextSlide) {
 																																easing: 'swing',
 																																queue: true,
 																																complete: function() {
-																																	// display slideshow images
+																																	// animate transfer to screen
+																																	var slide = $('.screen #slide3');
+																																	//var wireless = $(slide).find('#wireless');
+																																	var slideshow = $(slide).find('#slideshow');
+//								//																								$(wireless)
+//								//																									.animate({
+//								//																										//top: '70px',
+//								//																										//left: '-400px',
+//								//																										//width: '578px',
+//								//																										//height: '338px',
+//								//																										opacity: 'hide'
+//								//																									}, {
+//								//																										duration: 'slow',
+//								//																										easing: 'swing',
+//								//																										queue: true
+//								//																									})
+																																	$(slideshow)
+																																		.animate({
+																																			top: '25px',
+																																			left: '11px',
+																																			width: '578px',
+																																			height: '338px',
+																																			opacity: 'show'
+																																		}, {
+																																			duration: 'slow',
+																																			easing: 'swing',
+																																			queue: true,
+																																			complete: function() {
+																																				var slide = $('.screen #slide3');
+																																				var slideshow = $(slide).find('#slideshow');
+																																				var slideshowImages = $(slideshow).find('img.sample');
+																																				var delay = 1000;
+																																			
+																																				$(slideshowImages).each(function(index, item) {
+																																					if(item !== $(item).parent().children().last()[0]) {
+																																						$(item)
+																																						.delay((index + 0) * delay)
+																																						.animate({opacity: 'show'}, {duration: 'fast', easing: 'linear', queue: true})
+																																						.delay(delay)
+																																						.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true})
+																																					} else {
+																																						$(item)
+																																						.delay((index + 0) * delay)
+																																						.animate({opacity: 'show'}, {duration: 'fast', easing: 'linear', queue: true})
+																																						.delay(delay)
+																																						.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true, complete: function(){var slide = $('.screen #slide3'); $(slide).animate({opacity: 'hide'}, {duration: 'slow', easing: 'linear', queue: true, complete: function(){display_slide(4, true);}});}})
+																																					}
+																																				});
+																																			}
+																																		})
 																																}
 																															});
 																													}
