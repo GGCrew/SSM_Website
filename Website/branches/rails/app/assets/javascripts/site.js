@@ -69,7 +69,9 @@ function display_slide(slideNumber, playNextSlide) {
 				queue: false
 			});
 
+			$(text).first().parent().show();
 			$(text).each(function(index, item) {
+				$(item).find('*').show();
 				$(item)
 					.delay((index + 1) * 1000)
 					.animate({
