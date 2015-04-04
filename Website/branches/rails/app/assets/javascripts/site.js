@@ -307,7 +307,7 @@ function display_slide(slideNumber, playNextSlide) {
 																														var videoScreen = $(slide).find('#videoscreen');
 																														var videoScreenTube = $(videoScreen).find('.tube');
 																														var videoScreenScreen = $(videoScreen).find('.video');
-																														var videoScreenScreenTop = $(videoScreenTube)[0].offsetTop + ($(videoScreenTube)[0].offsetHeight % 2)
+																														var videoScreenScreenTop = $(videoScreenTube)[0].offsetTop + 10; //($(videoScreenTube)[0].clientHeight % 2)
 																														console.log('videoScreenScreenTop: ' + videoScreenScreenTop);
 
 																														$(videoScreenScreen).css({
@@ -327,20 +327,16 @@ function display_slide(slideNumber, playNextSlide) {
 																																complete: function() {
 																																	// animate transfer to screen
 																																	var slide = $('.screen #slide3');
-																																	//var wireless = $(slide).find('#wireless');
+																																	var wireless = $(slide).find('#wireless .sample').first();
 																																	var slideshow = $(slide).find('#slideshow');
-//								//																								$(wireless)
-//								//																									.animate({
-//								//																										//top: '70px',
-//								//																										//left: '-400px',
-//								//																										//width: '578px',
-//								//																										//height: '338px',
-//								//																										opacity: 'hide'
-//								//																									}, {
-//								//																										duration: 'slow',
-//								//																										easing: 'swing',
-//								//																										queue: true
-//								//																									})
+																																	$(slideshow)
+																																		.css({
+																																			top: $(wireless).css('top'),
+																																			left: $(wireless).css('left'),
+																																			width: $(wireless).css('width'),
+																																			height: $(wireless).css('height')
+																																		});
+																																	$(slideshow).find('.sample').first().show();
 																																	$(slideshow)
 																																		.animate({
 																																			top: '25px',
@@ -358,23 +354,47 @@ function display_slide(slideNumber, playNextSlide) {
 																																				var slideshowImages = $(slideshow).find('img.sample');
 																																				var delay = 1000;
 																																			
-																																				$(slideshowImages).each(function(index, item) {
-																																					if(item !== $(item).parent().children().last()[0]) {
-																																						$(item)
-																																						.delay((index + 0) * delay)
+																																				var counter = 0;
+																																				$(slideshowImages[counter])
+																																					.delay(delay)
+																																					.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true});
+
+																																				for(counter = 1; counter < ($(slideshowImages).length - 1); counter++) {
+																																					$(slideshowImages[counter])
+																																						.delay((counter + 0) * delay)
 																																						.animate({opacity: 'show'}, {duration: 'fast', easing: 'linear', queue: true})
 																																						.delay(delay)
-																																						.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true})
-																																					} else {
-																																						$(item)
-																																						.delay((index + 0) * delay)
-																																						.animate({opacity: 'show'}, {duration: 'fast', easing: 'linear', queue: true})
-																																						.delay(delay)
-																																						.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true, complete: function(){var slide = $('.screen #slide3'); $(slide).animate({opacity: 'hide'}, {duration: 'slow', easing: 'linear', queue: true, complete: function(){display_slide(4, true);}});}})
-																																					}
-																																				});
+																																						.animate({opacity: 'hide'}, {duration: 'fast', easing: 'linear', queue: true});
+																																				}
+
+																																				counter = $(slideshowImages).length - 1;
+																																				$(slideshowImages[counter])
+																																					.delay((counter + 0) * delay)
+																																					.animate({opacity: 'show'}, {duration: 'fast', easing: 'linear', queue: true})
+																																					.delay(delay)
+																																					.animate({
+																																						opacity: 'hide'
+																																					}, {
+																																						duration: 'fast',
+																																						easing: 'linear',
+																																						queue: true,
+																																						complete: function(){
+																																							var slide = $('.screen #slide3');
+																																							$(slide)
+																																								.animate({
+																																									opacity: 'hide'
+																																								}, {
+																																									duration: 'slow',
+																																									easing: 'linear',
+																																									queue: true,
+																																									complete: function(){
+																																										display_slide(4, true);
+																																									}
+																																								});
+																																						}
+																																					});
 																																			}
-																																		})
+																																		});
 																																}
 																															});
 																													}
