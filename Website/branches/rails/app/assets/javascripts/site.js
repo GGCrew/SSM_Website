@@ -152,9 +152,9 @@ function display_slide(slideNumber, playNextSlide) {
 											left: parseInt($(cameras[counter]).css('left')) - 25 + 'px'
 										};
 										$(flash)
-											.animate(flashPosition, {duration: 50, queue: true})
+											.animate(flashPosition, {duration: 20, queue: true})
 											.animate({opacity: 'show'}, {duration: 10, queue: true})
-											.delay(100)
+											.delay(50)
 											.animate({
 												opacity: 'hide'
 											}, {
@@ -168,9 +168,9 @@ function display_slide(slideNumber, playNextSlide) {
 										left: parseInt($(cameras[counter]).css('left')) - 25 + 'px'
 									};
 									$(flash)
-										.animate(flashPosition, {duration: 50, queue: true})
+										.animate(flashPosition, {duration: 20, queue: true})
 										.animate({opacity: 'show'}, {duration: 10, queue: true})
-										.delay(100)
+										.delay(50)
 										.animate({
 											opacity: 'hide'
 										}, {
