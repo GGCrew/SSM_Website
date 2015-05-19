@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: ssm_website_production
-  username: ssm
+  username: ssm_website
   password: <%= ENV['SSM_WEBSITE_DATABASE_PASSWORD'] %>

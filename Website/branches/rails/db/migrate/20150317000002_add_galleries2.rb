@@ -11,5 +11,10 @@ class AddGalleries2 < ActiveRecord::Migration
 		Gallery.create!(title: "Wedgewood Sierra La Verne Bridal Show",	event_date: Date.new(2015,3,18),	smugmug_album_id: '48101942', smugmug_album_key: 'mC7qQ5', album_url: "http://snapshowmagic.smugmug.com/Events/Wedgewood-Sierra-La-Verne/")
 
 		Gallery.create!(title: "Michael and Brittany",									event_date: Date.new(2015,3,21),	smugmug_album_id: '48152709', smugmug_album_key: 'kShLpz', album_url: "http://snapshowmagic.smugmug.com/Weddings/Michael-and-Brittany-03212015")
+
+		Gallery.create!(title: "Wedgewood at The Retreat Bridal Show",	event_date: Date.new(2015,3,31),	smugmug_album_id: '48350167', smugmug_album_key: 'Xnrq4P', album_url: "http://snapshowmagic.smugmug.com/Events/Wedgewood-at-The-Retreat-1/")
+		Gallery.create!(title: "NACC Networkers",												event_date: Date.new(2015,4,08),	smugmug_album_id: '48650976', smugmug_album_key: 'LF9NM3', album_url: "http://snapshowmagic.smugmug.com/Events/NACC-Networkers-04082015/")
+		Gallery.create!(title: "Demario and Brandi",										event_date: Date.new(2015,4,12),	smugmug_album_id: '48651547', smugmug_album_key: 'Hw7rvm', album_url: "http://snapshowmagic.smugmug.com/Weddings/Demario-and-Brandi-04122015/")
+		Gallery.create!(title: "",						event_date: Date.new(2015,2,18),	smugmug_album_id: '', smugmug_album_key: '', album_url: "")
 	end
 end
