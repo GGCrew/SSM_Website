@@ -208,6 +208,7 @@ function display_slide(slideNumber, playNextSlide) {
 																	easing: 'swing',
 																	queue: true,
 																	complete: function() {
+																		}}); // DEBUG CODE -- speeding up transitions
 																		// animate wireless transfers
 																		var slide = $('.screen #slide3');
 																		var cameras = $(slide).find('#cameras .camera');
@@ -281,6 +282,7 @@ function display_slide(slideNumber, playNextSlide) {
 																										easing: 'swing',
 																										queue: true,
 																										complete: function() {
+																											}}); // DEBUG CODE -- speeding up transitions
 																											// display video tube
 																											var slide = $('.screen #slide3');
 																											var videoScreen = $(slide).find('#videoscreen');
@@ -304,7 +306,7 @@ function display_slide(slideNumber, playNextSlide) {
 																														var videoScreenTube = $(videoScreen).find('.tube');
 																														var videoScreenScreen = $(videoScreen).find('.video');
 																														var videoScreenScreenTop = $(videoScreenTube)[0].offsetTop + 10; //($(videoScreenTube)[0].clientHeight % 2)
-																														console.log('videoScreenScreenTop: ' + videoScreenScreenTop);
+																														//console.log('videoScreenScreenTop: ' + videoScreenScreenTop);
 
 																														$(videoScreenScreen).css({
 																															top: videoScreenScreenTop + 'px',
@@ -395,14 +397,14 @@ function display_slide(slideNumber, playNextSlide) {
 																															});
 																													}
 																												});
-																										}
-																									});
+																										//} DEBUG CODE -- speeding up transitions
+																									//}); DEBUG CODE -- speeding up transitions
 																							}
 																						});
 																				}
 																			});
-																	}
-																});
+																	//} DEBUG CODE -- speeding up transitions
+																//}); DEBUG CODE -- speeding up transitions
 														}
 													});
 											}
