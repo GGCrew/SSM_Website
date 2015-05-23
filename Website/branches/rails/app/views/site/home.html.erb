@@ -66,7 +66,11 @@
 
 <%= javascript_tag do -%>
 	$(document).ready(function() {
-		//display_slide(1, true);
-		$('#slide1 .logo').on('load', function(){display_slide(1, true);});
+		if(navigator.browserInfo.browser == 'IE') {
+			//$(document).on('load'), function(){display_slide(1, true);});
+			display_slide(1, true);
+		} else {
+			$('#slide1').on('load', function(){display_slide(1, true);});
+		}
 	});
 <%- end -%>
