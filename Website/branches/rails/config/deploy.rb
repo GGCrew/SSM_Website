@@ -1,13 +1,39 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+require 'bundler/capistrano'
+
+set :user, 'ssm_deploy'
+set :domain, 'snapshowmagic.com'
+set :application, 'SnapShowMagic.com'
+
+
+# If using RVM in production
+set :rvm_type, :system
+set :rvm_ruby_string, 'ruby-2.2-head'
+require 'rvm/capistrano'
+
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+set :scm, :subversion
+set :scm_username, 'deploy'
+set :repository,  'svn://net-night.com/snapshowmagic/Website/branches/rails'
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+
+role :web, domain                          # Your HTTP server, Apache/etc
+role :app, domain                          # This may be the same as your `Web` server
+role :db,  domain, :primary => true # This is where Rails migrations will run
+# role :db,  "your slave db-server here"
+set :deploy_to, '/var/www/snapshowmagic_test'
+
+
+# miscellaneous options
+set :deploy_via, :remote_cache
+#set :scm, 'git'
+#set :branch, 'master'
+set :scm_verbose, true
+set :use_sudo, false
+set :normalize_asset_timestamps, false
+set :rails_env, :production
+
 
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
@@ -23,3 +49,16 @@ role :db,  "your slave db-server here"
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+
+namespace :deploy do
+	desc "cause Passenger to initiate a restart"
+	task :restart do
+		run "touch #{current_path}/tmp/restart.txt"
+	end
+
+	desc "reload the database with seed data"
+	task :seed do
+		deploy.migrations
+		run "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
+	end
+end
