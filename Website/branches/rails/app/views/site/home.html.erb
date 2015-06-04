@@ -64,13 +64,19 @@
 	</div>	
 </div>
 
+<div class="badges">
+	<a href="http://www.theknot.com/marketplace/snap-show-magic-norco-ca-660193?utm_source=vendor_website&utm_medium=banner&utm_term=3bebca6d-18df-4da2-ac2f-a369001d88b1&utm_campaign=vendor_badge_assets"><img src="//www.xoedge.com/myaccount/2012/grab-a-badge/as-seen-in/ASO.png" width="122" height="61" alt="As Seen on The Knot" border="0"></a>
+</div>
+
+<%- if false -%>
 <%= javascript_tag do -%>
 	$(document).ready(function() {
 		if(navigator.browserInfo.browser == 'IE') {
 			//$(document).on('load'), function(){display_slide(1, true);});
 			display_slide(1, true);
 		} else {
-			$('#slide1').on('load', function(){display_slide(1, true);});
+			$('#slide1 .logo').on('load', function(){display_slide(1, true);});
 		}
 	});
+<%- end -%>
 <%- end -%>

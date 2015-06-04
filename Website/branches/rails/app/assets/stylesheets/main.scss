@@ -46,6 +46,7 @@ body {
 }
 
 #foot {
+	display: none;
 }
 
 #body {
@@ -250,6 +251,11 @@ body {
 				}
 			}
 		}
+	}
+
+	.badges {
+		text-align: center;
+		margin-top: 5em;
 	}
 
 	h1 {

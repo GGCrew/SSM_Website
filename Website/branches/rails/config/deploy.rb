@@ -14,7 +14,8 @@ require 'rvm/capistrano'
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :scm, :subversion
-set :scm_username, 'deploy'
+set :scm_username, 'randy' 
+set :scm_password, 'Randy.1'
 set :repository,  'svn://net-night.com/snapshowmagic/Website/branches/rails'
 
 

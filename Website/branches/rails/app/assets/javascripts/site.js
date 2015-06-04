@@ -528,3 +528,13 @@ navigator.browserInfo = (function(){
 	if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
 	return { 'browser': M[0], 'version': M[1] };
 })();
+
+
+$(document).on('page:change', function() {
+	if(navigator.browserInfo.browser == 'IE') {
+		//$(document).on('load'), function(){display_slide(1, true);});
+		display_slide(1, true);
+	} else {
+		$('#slide1 .logo').on('load', function(){display_slide(1, true);});
+	}
+});
