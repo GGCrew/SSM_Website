@@ -15,6 +15,12 @@ class AddGalleries2 < ActiveRecord::Migration
 		Gallery.create!(title: "Wedgewood at The Retreat Bridal Show",	event_date: Date.new(2015,3,31),	smugmug_album_id: '48350167', smugmug_album_key: 'Xnrq4P', album_url: "http://snapshowmagic.smugmug.com/Events/Wedgewood-at-The-Retreat-1/")
 		Gallery.create!(title: "NACC Networkers",												event_date: Date.new(2015,4,08),	smugmug_album_id: '48650976', smugmug_album_key: 'LF9NM3', album_url: "http://snapshowmagic.smugmug.com/Events/NACC-Networkers-04082015/")
 		Gallery.create!(title: "Demario and Brandi",										event_date: Date.new(2015,4,12),	smugmug_album_id: '48651547', smugmug_album_key: 'Hw7rvm', album_url: "http://snapshowmagic.smugmug.com/Weddings/Demario-and-Brandi-04122015/")
-		Gallery.create!(title: "",						event_date: Date.new(2015,2,18),	smugmug_album_id: '', smugmug_album_key: '', album_url: "")
+
+		Gallery.create!(title: "Bill and Christine",										event_date: Date.new(2015,5,17),	smugmug_album_id: '49339045', smugmug_album_key: 'bVrv8g', album_url: "http://snapshowmagic.smugmug.com/Weddings/Bill-and-Christine-05172015/")
+		Gallery.create!(title: "Warren and Sheila",											event_date: Date.new(2015,5,23),	smugmug_album_id: '49462967', smugmug_album_key: 'mZPN3g', album_url: "http://snapshowmagic.smugmug.com/Weddings/Warren-and-Sheila-05232015/")
+		Gallery.create!(title: "Wedgewood Menifee Lakes Bridal Show",		event_date: Date.new(2015,5,20),	smugmug_album_id: '49406532', smugmug_album_key: 'Jwrjsw', album_url: "http://snapshowmagic.smugmug.com/Events/Wedgewood-Menifee-Lakes/")
+		Gallery.create!(title: "Wedgewood Indian Hills Bridal Show",		event_date: Date.new(2015,4,29),	smugmug_album_id: '49291184', smugmug_album_key: 'f52QRp', album_url: "http://snapshowmagic.smugmug.com/Events/Wedgewood-Indian-Hills-Bridal/")
+		Gallery.create!(title: "Wedgewood at Glen Ivy Bridal Show",			event_date: Date.new(2015,4,22),	smugmug_album_id: '49207954', smugmug_album_key: 'z9rFMg', album_url: "http://snapshowmagic.smugmug.com/Events/Wedgewood-at-Glen-Ivy/")
+		Gallery.create!(title: "G1veabuckfund.org BBQ Fundraiser",			event_date: Date.new(2015,4,30),	smugmug_album_id: '48969369', smugmug_album_key: 'RDHHmV', album_url: "http://snapshowmagic.smugmug.com/Events/G1veabuckfundorg-BBQ/")
 	end
 end
