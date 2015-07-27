@@ -1,0 +1,10 @@
+      Prefix Verb URI Pattern             Controller#Action
+        home GET  /home(.:format)         site#home
+       about GET  /about(.:format)        site#about
+     pricing GET  /pricing(.:format)      site#pricing
+         faq GET  /faq(.:format)          site#faq
+     contact GET  /contact(.:format)      site#contact
+     history GET  /history(.:format)      site#history
+        root GET  /                       site#home
+   galleries GET  /galleries(.:format)    galleries#index
+testimonials GET  /testimonials(.:format) testimonials#index
