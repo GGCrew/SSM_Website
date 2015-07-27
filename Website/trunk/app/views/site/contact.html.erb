@@ -1,0 +1,43 @@
+<h1>Contact Us</h1>
+
+<p>
+	Got questions about availability, pricing, or just want to know more?<br>
+	Give us a call or send an email &mdash; we'll get back to you as soon as possible!
+</p>
+
+<table class="contact">
+	<tbody>
+		<tr>
+			<th>Email</th>
+			<td><a href="mailto:SnapShowMagic@gmail.com?subject=Snap Show Magic">SnapShowMagic@gmail.com</a></td>
+		</tr>
+		<tr>
+			<th>Phone</th>
+			<td>714.401.2511</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="servicearea">
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					We're based out of Norco, California, which is near the Orange/Riverside county border in Southern California.
+				</p>
+				<p>
+					Our normal service area is about 100 miles.<br>
+					That covers San Diego to Barstow, Thousand Oaks to Indio!<br>
+				</p>
+			</td>
+			<td class="map">
+				<div id="service-area-map-canvas"></div>
+				Approximate service area
+				<%= javascript_tag do -%>
+					google.maps.event.addDomListener(window, 'load', display_service_area_map(7));
+				<%- end -%>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
