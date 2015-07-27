@@ -1,0 +1,8 @@
+<h1>Testimonials</h1>
+
+<%- @testimonials.each do |testimonial| -%>
+	<blockquote class="testimonial">
+		<%= simple_format(testimonial.quote, {}, {}) -%>
+		<span>&mdash; <%= testimonial.from -%></span>
+	</blockquote>
+<%- end -%>
