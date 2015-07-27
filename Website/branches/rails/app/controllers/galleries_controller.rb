@@ -4,7 +4,7 @@ class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
-    @galleries = Gallery.all.order(event_date: :desc)
+    @galleries = Gallery.all.order(event_date: :desc, id: :asc)
   end
 
   # GET /galleries/1
