@@ -1,9 +1,9 @@
-rails g scaffold User \
-name:string \
-email:string \
-login:string \
-password_digest:string \
-active:boolean
+#rails g scaffold User \
+#name:string \
+#email:string \
+#login:string \
+#password_digest:string \
+#active:boolean
 
 rails g scaffold Calendar \
 date:date
