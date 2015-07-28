@@ -7,14 +7,14 @@ Rails.application.routes.draw do
   get 'contact'	=> 'site#contact',	:as => 'contact'
   get 'history'	=> 'site#history',	:as => 'history'
 
-	#get 'log_out' => 'sessions#destroy', :as => 'log_out'
-	#get 'log_in' => 'sessions#new', :as => 'log_in'
-	#get 'sign_up' => 'users#new', :as => 'sign_up'
+	get 'log_out' => 'sessions#destroy', :as => 'log_out'
+	get 'log_in' => 'sessions#new', :as => 'log_in'
+	get 'sign_up' => 'users#new', :as => 'sign_up'
 
 	root :to => 'site#home'
 
-	#resources :users
-	#resources :sessions
+	resources :users
+	resources :sessions
   resources :galleries,	:only => ['index']
   resources :testimonials, :only => ['index']
 
