@@ -1,4 +1,8 @@
 class SiteController < ApplicationController
+	skip_before_action	:set_userstamp
+
+	#..#
+
   def home
   end
 

@@ -1,6 +1,6 @@
 class Gallery < ActiveRecord::Base
 
-	self.template
+	def self.template
 		private_column_names = ['id', 'created_at', 'updated_at']
 		public_column_names = self.column_names - private_column_names
 		max_index = public_column_names.count - 1
