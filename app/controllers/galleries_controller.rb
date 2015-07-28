@@ -1,4 +1,6 @@
 class GalleriesController < ApplicationController
+	skip_before_action	:set_userstamp, only: [:index]
+
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
 
   # GET /galleries

@@ -1,28 +1,14 @@
 class User < ActiveRecord::Base
-	# Authentication code from: http://railscasts.com/episodes/250-authentication-from-scratch
-	# (with some updates for Rails 4, particularly the move from attr_accessible to "strong parameters")
 
-	attr_accessor :password
-	before_save :encrypt_password
+	# Authentication-related code from "Agile Web Development With Rails 4"
 
-	validates_confirmation_of :password
-	validates_presence_of :password, :on => :create
-	validates_presence_of :email
-	validates_uniqueness_of :email
+	validates	:name,	presence: true,	uniqueness: true
+	validates	:login,	presence: true,	uniqueness: true
 
-	def self.authenticate(email, password)
-		user = find_by_email(email)
-		if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
-			user
-		else
-			nil
-		end
-	end
+	has_secure_password
 
-	def encrypt_password
-		if password.present?
-			self.password_salt = BCrypt::Engine.generate_salt
-			self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-		end
-	end
+	#..#
+
+	cattr_accessor :current_user
+
 end

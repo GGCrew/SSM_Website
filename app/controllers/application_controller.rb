@@ -3,15 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-	helper_method :current_user
+	before_action	:set_userstamp
+	before_action	:set_selected_menu_item	
 
-	before_action :set_selected_menu_item	
+	#..#
 
 	private
 
-	def current_user
-		@current_user ||= User.find(session[:user_id]) if session[:user_id]
-	end
+  def set_userstamp
+    User.current_user = User.find(session[:user_id])
+  end
 
 	def set_selected_menu_item
 		@selected_menu_item = case params[:controller]

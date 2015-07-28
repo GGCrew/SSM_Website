@@ -1,4 +1,6 @@
 class TestimonialsController < ApplicationController
+	skip_before_action	:set_userstamp, only: [:index]
+
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
 
   # GET /testimonials
