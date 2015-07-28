@@ -1,0 +1,98 @@
+rails g scaffold User \
+name:string \
+email:string \
+login:string \
+password_digest:string \
+active:boolean
+
+rails g scaffold Calendar \
+date:date
+
+rails g scaffold Note \
+resource_type:string \
+resource_id:integer \
+note:text
+
+rails g scaffold Client \
+first_name:string \
+last_name:string \
+organization:string
+
+rails g scaffold ContactDetail \
+resource_type:string \
+resource_id:integer \
+contact_type_id:integer \
+phone:string \
+email:string \
+address1:string \
+address2:string \
+city:string \
+state:string \
+zip:string \
+alt_first_name:string \
+alt_last_name:string \
+title:string \
+order:integer
+
+rails g model ContactType \
+name:string \
+active:boolean \
+order:integer
+
+rails g scaffold Event \
+client_id:integer \
+event_type_id:integer \
+start:datetime \
+end:datetime \
+placeholder_times:boolean \
+location_id:integer \
+booking_status_id:integer \
+contract_status_id:integer \
+payment_status_id:integer \
+bride_first_name:string \
+bride_last_name:string \
+groom_first_name:string \
+groom_last_name:string \
+event_name:string \
+number_of_cameras:integer \
+photo_media_id:integer
+
+rails g scaffold Location \
+name:string \
+active:boolean
+
+rails g scaffold Transaction \
+event_id:integer \
+order:integer
+
+rails g scaffold TransactionItem \
+name:string \
+active:boolean \
+order:integer
+
+rails g scaffold TransactionItemDetail \
+transaction_item_id:integer \
+price:decimal \
+camera_count:integer \
+media_count:integer \
+start_date:date \
+end_date:date \
+
+rails g scaffold TransactionDetail \
+transaction_id:integer \
+transaction_item_id:integer \
+count:integer \
+override_item_price:decimal \
+order:integer
+
+rails g scaffold TransactionPackage \
+name:string \
+active:boolean \
+order:integer
+
+rails g scaffold TransactionPackageDetail \
+transaction_package_id:integer \
+transaction_item_id:integer \
+count:integer \
+order:integer
+
