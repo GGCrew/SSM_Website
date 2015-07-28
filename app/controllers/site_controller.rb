@@ -1,5 +1,6 @@
 class SiteController < ApplicationController
-	skip_before_action	:set_userstamp
+
+	#skip_before_action	:set_userstamp
 
 	#..#
 
