@@ -32,6 +32,8 @@ gem "bcrypt"
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem 'blamer', '~> 4.0.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'rvm-capistrano', group: :development
