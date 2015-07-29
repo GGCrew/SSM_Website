@@ -10,42 +10,47 @@
 
 	<body>
 		<%- if User.current_user -%>
-			<!-- Move this somewhere else, after page structure has been firmly established --!>
-			<div id="user_nav">
-				Logged in as <%= User.current_user.name -%>.
-				<%= link_to "Log out", log_out_path -%>
-			</div>
+			<div id="appetizer">
+				<div class="container">
+					<div id="user_nav">
+						Logged in as <%= User.current_user.name -%>.
+						<%= link_to "Log out", log_out_path -%>
+					</div><!-- #user_nav --!>
+				</div><!-- .container --!>
+			</div><!-- #appetizer --!>
 		<%- end -%>
 
-		<div id="head">
-			<div class="container">
-				<div class="menu">
-					<%= link_to('Home',					root_path,					{class: "#{@selected_menu_item=='home'					? 'selected' : nil}"}) -%>
-					<%= link_to('About',				about_path,					{class: "#{@selected_menu_item=='about'					? 'selected' : nil}"}) -%>
-					<%= link_to('Contact',			contact_path,				{class: "#{@selected_menu_item=='contact'				? 'selected' : nil}"}) -%>
-					<%= link_to('Testimonials',	testimonials_path,	{class: "#{@selected_menu_item=='testimonials'	? 'selected' : nil}"}) -%>
-					<%= link_to('F.A.Q.',				faq_path,						{class: "#{@selected_menu_item=='faq'						? 'selected' : nil}"}) -%>
-					<%= link_to('Galleries',		galleries_path,			{class: "#{@selected_menu_item=='galleries'			? 'selected' : nil}"}) -%>
-					<%#= link_to('Pricing',			pricing_path,				{class: "#{@selected_menu_item=='pricing'				? 'selected' : nil}"}) -%>
-					<%#= link_to('History',			history_path,				{class: "#{@selected_menu_item=='history'				? 'selected' : nil}"}) -%>
-					<%#= link_to('Calendar',		calendar_path,			{class: "#{@selected_menu_item=='calendar'			? 'selected' : nil}"}) -%>
-				</div>
-			</div>
-		</div>
+		<div id="main">
+			<div id="head">
+				<div class="container">
+					<div class="menu">
+						<%= link_to('Home',					root_path,					{class: "#{@selected_menu_item=='home'					? 'selected' : nil}"}) -%>
+						<%= link_to('About',				about_path,					{class: "#{@selected_menu_item=='about'					? 'selected' : nil}"}) -%>
+						<%= link_to('Contact',			contact_path,				{class: "#{@selected_menu_item=='contact'				? 'selected' : nil}"}) -%>
+						<%= link_to('Testimonials',	testimonials_path,	{class: "#{@selected_menu_item=='testimonials'	? 'selected' : nil}"}) -%>
+						<%= link_to('F.A.Q.',				faq_path,						{class: "#{@selected_menu_item=='faq'						? 'selected' : nil}"}) -%>
+						<%= link_to('Galleries',		galleries_path,			{class: "#{@selected_menu_item=='galleries'			? 'selected' : nil}"}) -%>
+						<%#= link_to('Pricing',			pricing_path,				{class: "#{@selected_menu_item=='pricing'				? 'selected' : nil}"}) -%>
+						<%#= link_to('History',			history_path,				{class: "#{@selected_menu_item=='history'				? 'selected' : nil}"}) -%>
+						<%#= link_to('Calendar',		calendar_path,			{class: "#{@selected_menu_item=='calendar'			? 'selected' : nil}"}) -%>
+					</div><!-- .menu --!>
+				</div><!-- .container --!>
+			</div><!-- #head --!>
 
-		<div id="body">
-			<div class="container">
-				<%- flash.each do |name, msg| -%>
-					<%= content_tag(:div, msg, :id => "flash_#{name}") -%>
-				<%- end -%>
+			<div id="body">
+				<div class="container">
+					<%- flash.each do |name, msg| -%>
+						<%= content_tag(:div, msg, :id => "flash_#{name}") -%>
+					<%- end -%>
 
-				<%#= debug(params) -%>
+					<%#= debug(params) -%>
 
-				<%= yield -%>
-			</div>
-		</div>
+					<%= yield -%>
+				</div><!-- .container --!>
+			</div><!-- #body --!>
 
-		<div id="foot"></div>
+			<div id="foot"></div>
+		</div><!-- #main --!>
 
 	</body>
 </html>
