@@ -10,6 +10,52 @@ body {
 	position: relative;
 }
 
+#appetizer {
+	background-color: #0700FF;
+	color: yellow;
+	padding: .5em 0;
+	border-bottom: .25em solid;
+	
+	#user_nav {
+		text-align: right;
+
+		a, a:visited, a:hover {
+			color: inherit;
+			font-weight: bold;
+		}
+	}
+
+	.menu {
+		text-align: center;
+		width: 100%;
+		color: inherit;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: .9em;
+
+		a {
+			padding: .25em 1em;
+			text-decoration: none;
+			color: inherit;
+			background-color: #000070;
+			display: inline-block;
+			width: 7em;
+			border: 1px solid #000070;
+			border-radius: 0.5em;
+
+			&:link, &:visited, &:hover {
+				color: inherit;
+			}
+
+			&:hover, &.selected {
+				background-color: #0700FF;
+				border-color: #000070;
+				color: inherit;
+			}
+		}
+	}
+}
+
 #head {
 	background-color: #202020;
 	color: white;
