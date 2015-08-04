@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   resources :galleries,	:only => ['index']
   resources :testimonials, :only => ['index']
 
+	namespace :admin do
+		resource	:calendar
+	end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
