@@ -29,7 +29,7 @@ class Admin::EventsController < ApplicationController
 
     respond_to do |format|
       if @admin_event.save
-        format.html { redirect_to @admin_event, notice: 'Event was successfully created.' }
+        format.html { redirect_to admin_event_path(@admin_event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @admin_event }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class Admin::EventsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_event.update(admin_event_params)
-        format.html { redirect_to @admin_event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to admin_event_path(@admin_event), notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_event }
       else
         format.html { render :edit }
@@ -70,6 +70,6 @@ class Admin::EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_event_params
-      params.require(:admin_event).permit(:client_id, :event_type_id, :start, :end, :placeholder_times, :location_id, :booking_status_id, :contract_status_id, :payment_status_id, :bride_first_name, :bride_last_name, :groom_first_name, :groom_last_name, :event_name, :number_of_cameras, :photo_media_id)
+      params.require(:event).permit(:client_id, :event_type_id, :start, :end, :placeholder_times, :location_id, :booking_status_id, :contract_status_id, :payment_status_id, :bride_first_name, :bride_last_name, :groom_first_name, :groom_last_name, :event_name, :number_of_cameras, :photo_media_id)
     end
 end
