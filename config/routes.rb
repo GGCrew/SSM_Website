@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :testimonials, :only => ['index']
 
 	namespace :admin do
-		resource	:calendar
+		resource	:calendar,	:only => ['show']
 	end
 
   # The priority is based upon order of creation: first created -> highest priority.
