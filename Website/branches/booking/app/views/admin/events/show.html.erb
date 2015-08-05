@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @admin_event.client_id %>
+</p>
+
+<p>
+  <strong>Event type:</strong>
+  <%= @admin_event.event_type_id %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @admin_event.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @admin_event.end %>
+</p>
+
+<p>
+  <strong>Placeholder times:</strong>
+  <%= @admin_event.placeholder_times %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @admin_event.location_id %>
+</p>
+
+<p>
+  <strong>Booking status:</strong>
+  <%= @admin_event.booking_status_id %>
+</p>
+
+<p>
+  <strong>Contract status:</strong>
+  <%= @admin_event.contract_status_id %>
+</p>
+
+<p>
+  <strong>Payment status:</strong>
+  <%= @admin_event.payment_status_id %>
+</p>
+
+<p>
+  <strong>Bride first name:</strong>
+  <%= @admin_event.bride_first_name %>
+</p>
+
+<p>
+  <strong>Bride last name:</strong>
+  <%= @admin_event.bride_last_name %>
+</p>
+
+<p>
+  <strong>Groom first name:</strong>
+  <%= @admin_event.groom_first_name %>
+</p>
+
+<p>
+  <strong>Groom last name:</strong>
+  <%= @admin_event.groom_last_name %>
+</p>
+
+<p>
+  <strong>Event name:</strong>
+  <%= @admin_event.event_name %>
+</p>
+
+<p>
+  <strong>Number of cameras:</strong>
+  <%= @admin_event.number_of_cameras %>
+</p>
+
+<p>
+  <strong>Photo media:</strong>
+  <%= @admin_event.photo_media_id %>
+</p>
+
+<%= link_to 'Edit', edit_admin_event_path(@admin_event) %> |
+<%= link_to 'Back', admin_events_path %>

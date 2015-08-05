@@ -5,7 +5,8 @@
 			<%= link_to "Log out", log_out_path -%>
 		</div><!-- #user_nav --!>
 		<div class="menu">
-			<%= link_to('Calendar',	admin_calendar_path,	{class: "#{@selected_menu_item=='admin/calendars'					? 'selected' : nil}"}) -%>
+			<%= link_to('Calendar',	admin_calendar_path,	{class: "#{@selected_menu_item=='admin/calendars'	? 'selected' : nil}"}) -%>
+			<%= link_to('Events',		admin_events_path,		{class: "#{@selected_menu_item=='admin/events'		? 'selected' : nil}"}) -%>
 		</div>
 	</div><!-- .container --!>
 </div><!-- #admin --!>

@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728000001) do
+ActiveRecord::Schema.define(version: 20150805000004) do
+
+  create_table "events", force: :cascade do |t|
+    t.integer  "client_id",          limit: 4
+    t.integer  "event_type_id",      limit: 4
+    t.datetime "start"
+    t.datetime "end"
+    t.boolean  "placeholder_times",  limit: 1
+    t.integer  "location_id",        limit: 4
+    t.integer  "booking_status_id",  limit: 4
+    t.integer  "contract_status_id", limit: 4
+    t.integer  "payment_status_id",  limit: 4
+    t.string   "bride_first_name",   limit: 255
+    t.string   "bride_last_name",    limit: 255
+    t.string   "groom_first_name",   limit: 255
+    t.string   "groom_last_name",    limit: 255
+    t.string   "event_name",         limit: 255
+    t.integer  "number_of_cameras",  limit: 4
+    t.integer  "photo_media_id",     limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "created_by",         limit: 4
+    t.integer  "updated_by",         limit: 4
+  end
 
   create_table "galleries", force: :cascade do |t|
     t.string   "title",             limit: 255
@@ -21,6 +44,8 @@ ActiveRecord::Schema.define(version: 20150728000001) do
     t.string   "smugmug_album_key", limit: 255
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.integer  "created_by",        limit: 4
+    t.integer  "updated_by",        limit: 4
   end
 
   create_table "testimonials", force: :cascade do |t|
@@ -28,6 +53,8 @@ ActiveRecord::Schema.define(version: 20150728000001) do
     t.text     "quote",      limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
   end
 
   create_table "users", force: :cascade do |t|

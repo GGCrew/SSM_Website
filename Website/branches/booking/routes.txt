@@ -1,30 +1,38 @@
-        Prefix Verb   URI Pattern                  Controller#Action
-          home GET    /home(.:format)              site#home
-         about GET    /about(.:format)             site#about
-       pricing GET    /pricing(.:format)           site#pricing
-           faq GET    /faq(.:format)               site#faq
-       contact GET    /contact(.:format)           site#contact
-       history GET    /history(.:format)           site#history
-       log_out GET    /log_out(.:format)           sessions#destroy
-        log_in GET    /log_in(.:format)            sessions#new
-       sign_up GET    /sign_up(.:format)           users#new
-          root GET    /                            site#home
-         users GET    /users(.:format)             users#index
-               POST   /users(.:format)             users#create
-      new_user GET    /users/new(.:format)         users#new
-     edit_user GET    /users/:id/edit(.:format)    users#edit
-          user GET    /users/:id(.:format)         users#show
-               PATCH  /users/:id(.:format)         users#update
-               PUT    /users/:id(.:format)         users#update
-               DELETE /users/:id(.:format)         users#destroy
-      sessions GET    /sessions(.:format)          sessions#index
-               POST   /sessions(.:format)          sessions#create
-   new_session GET    /sessions/new(.:format)      sessions#new
-  edit_session GET    /sessions/:id/edit(.:format) sessions#edit
-       session GET    /sessions/:id(.:format)      sessions#show
-               PATCH  /sessions/:id(.:format)      sessions#update
-               PUT    /sessions/:id(.:format)      sessions#update
-               DELETE /sessions/:id(.:format)      sessions#destroy
-     galleries GET    /galleries(.:format)         galleries#index
-  testimonials GET    /testimonials(.:format)      testimonials#index
-admin_calendar GET    /admin/calendar(.:format)    admin/calendars#show
+          Prefix Verb   URI Pattern                      Controller#Action
+            home GET    /home(.:format)                  site#home
+           about GET    /about(.:format)                 site#about
+         pricing GET    /pricing(.:format)               site#pricing
+             faq GET    /faq(.:format)                   site#faq
+         contact GET    /contact(.:format)               site#contact
+         history GET    /history(.:format)               site#history
+         log_out GET    /log_out(.:format)               sessions#destroy
+          log_in GET    /log_in(.:format)                sessions#new
+         sign_up GET    /sign_up(.:format)               users#new
+            root GET    /                                site#home
+           users GET    /users(.:format)                 users#index
+                 POST   /users(.:format)                 users#create
+        new_user GET    /users/new(.:format)             users#new
+       edit_user GET    /users/:id/edit(.:format)        users#edit
+            user GET    /users/:id(.:format)             users#show
+                 PATCH  /users/:id(.:format)             users#update
+                 PUT    /users/:id(.:format)             users#update
+                 DELETE /users/:id(.:format)             users#destroy
+        sessions GET    /sessions(.:format)              sessions#index
+                 POST   /sessions(.:format)              sessions#create
+     new_session GET    /sessions/new(.:format)          sessions#new
+    edit_session GET    /sessions/:id/edit(.:format)     sessions#edit
+         session GET    /sessions/:id(.:format)          sessions#show
+                 PATCH  /sessions/:id(.:format)          sessions#update
+                 PUT    /sessions/:id(.:format)          sessions#update
+                 DELETE /sessions/:id(.:format)          sessions#destroy
+       galleries GET    /galleries(.:format)             galleries#index
+    testimonials GET    /testimonials(.:format)          testimonials#index
+  admin_calendar GET    /admin/calendar(.:format)        admin/calendars#show
+    admin_events GET    /admin/events(.:format)          admin/events#index
+                 POST   /admin/events(.:format)          admin/events#create
+ new_admin_event GET    /admin/events/new(.:format)      admin/events#new
+edit_admin_event GET    /admin/events/:id/edit(.:format) admin/events#edit
+     admin_event GET    /admin/events/:id(.:format)      admin/events#show
+                 PATCH  /admin/events/:id(.:format)      admin/events#update
+                 PUT    /admin/events/:id(.:format)      admin/events#update
+                 DELETE /admin/events/:id(.:format)      admin/events#destroy

@@ -32,7 +32,7 @@ name:string \
 active:boolean \
 order:integer
 
-rails g scaffold Event \
+rails g scaffold admin/events \
 client_id:integer \
 event_type_id:integer \
 start:datetime \
