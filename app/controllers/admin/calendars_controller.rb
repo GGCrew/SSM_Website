@@ -11,7 +11,7 @@ class Admin::CalendarsController < ApplicationController
 				else
 					events = Event.between(Date.today - 2.months, Date.today + 2.months)
 				end
-				@events = events.map{ |i| {id: "event_#{i.id}", title: i.event_name, start: i.start, end: i.end}}
+				@events = events.map{ |i| {id: "event_#{i.id}", class_name: 'event', title: i.event_name, start: i.start, end: i.end}}
 			}
 		end
 	end
