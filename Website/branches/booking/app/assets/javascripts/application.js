@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require layout
+//= require fullcalendar/lib/moment.min
+//= require fullcalendar/fullcalendar
 //= require_tree .
