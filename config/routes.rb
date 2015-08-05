@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
 	namespace :admin do
 		resource	:calendar,	:only => ['show']
+		resources :events
 	end
 
   # The priority is based upon order of creation: first created -> highest priority.

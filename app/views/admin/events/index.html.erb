@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Event type</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Placeholder times</th>
+      <th>Location</th>
+      <th>Booking status</th>
+      <th>Contract status</th>
+      <th>Payment status</th>
+      <th>Bride first name</th>
+      <th>Bride last name</th>
+      <th>Groom first name</th>
+      <th>Groom last name</th>
+      <th>Event name</th>
+      <th>Number of cameras</th>
+      <th>Photo media</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_events.each do |admin_event| %>
+      <tr>
+        <td><%= admin_event.client_id %></td>
+        <td><%= admin_event.event_type_id %></td>
+        <td><%= admin_event.start %></td>
+        <td><%= admin_event.end %></td>
+        <td><%= admin_event.placeholder_times %></td>
+        <td><%= admin_event.location_id %></td>
+        <td><%= admin_event.booking_status_id %></td>
+        <td><%= admin_event.contract_status_id %></td>
+        <td><%= admin_event.payment_status_id %></td>
+        <td><%= admin_event.bride_first_name %></td>
+        <td><%= admin_event.bride_last_name %></td>
+        <td><%= admin_event.groom_first_name %></td>
+        <td><%= admin_event.groom_last_name %></td>
+        <td><%= admin_event.event_name %></td>
+        <td><%= admin_event.number_of_cameras %></td>
+        <td><%= admin_event.photo_media_id %></td>
+        <td><%= link_to 'Show', admin_event %></td>
+        <td><%= link_to 'Edit', edit_admin_event_path(admin_event) %></td>
+        <td><%= link_to 'Destroy', admin_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_admin_event_path %>
