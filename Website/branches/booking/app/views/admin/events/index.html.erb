@@ -44,9 +44,9 @@
         <td><%= admin_event.event_name %></td>
         <td><%= admin_event.number_of_cameras %></td>
         <td><%= admin_event.photo_media_id %></td>
-        <td><%= link_to 'Show', admin_event %></td>
+        <td><%= link_to 'Show', admin_event_path(admin_event) %></td>
         <td><%= link_to 'Edit', edit_admin_event_path(admin_event) %></td>
-        <td><%= link_to 'Destroy', admin_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', admin_event_path(admin_event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
