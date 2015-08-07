@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805000004) do
+ActiveRecord::Schema.define(version: 20150807000002) do
+
+  create_table "admin_notes", force: :cascade do |t|
+    t.integer  "noteable_id",   limit: 4
+    t.string   "noteable_type", limit: 255
+    t.text     "note",          limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "created_by",    limit: 4
+    t.integer  "updated_by",    limit: 4
+  end
+
+  add_index "admin_notes", ["noteable_type", "noteable_id"], name: "index_admin_notes_on_noteable_type_and_noteable_id", using: :btree
+
+  create_table "event_types", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "position",   limit: 4
+    t.boolean  "active",     limit: 1,   default: true
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
+  end
 
   create_table "events", force: :cascade do |t|
     t.integer  "client_id",          limit: 4

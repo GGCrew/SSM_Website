@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Resource type:</strong>
+  <%= @admin_note.resource_type %>
+</p>
+
+<p>
+  <strong>Resource:</strong>
+  <%= @admin_note.resource_id %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @admin_note.note %>
+</p>
+
+<%= link_to 'Edit', edit_admin_note_path(@admin_note) %> |
+<%= link_to 'Back', admin_notes_path %>

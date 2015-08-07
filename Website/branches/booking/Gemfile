@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'unicorn'
 
 gem 'blamer', '~> 4.0.0'
+gem 'acts_as_list'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
