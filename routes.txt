@@ -36,3 +36,11 @@ edit_admin_event GET    /admin/events/:id/edit(.:format) admin/events#edit
                  PATCH  /admin/events/:id(.:format)      admin/events#update
                  PUT    /admin/events/:id(.:format)      admin/events#update
                  DELETE /admin/events/:id(.:format)      admin/events#destroy
+     admin_notes GET    /admin/notes(.:format)           admin/notes#index
+                 POST   /admin/notes(.:format)           admin/notes#create
+  new_admin_note GET    /admin/notes/new(.:format)       admin/notes#new
+ edit_admin_note GET    /admin/notes/:id/edit(.:format)  admin/notes#edit
+      admin_note GET    /admin/notes/:id(.:format)       admin/notes#show
+                 PATCH  /admin/notes/:id(.:format)       admin/notes#update
+                 PUT    /admin/notes/:id(.:format)       admin/notes#update
+                 DELETE /admin/notes/:id(.:format)       admin/notes#destroy

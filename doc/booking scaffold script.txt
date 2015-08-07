@@ -1,10 +1,15 @@
 rails g scaffold Calendar \
 date:date
 
-rails g scaffold Note \
+rails g scaffold admin/note \
 resource_type:string \
 resource_id:integer \
 note:text
+
+rails g model event_type \
+name:string \
+order:integer \
+active:boolean
 
 rails g scaffold Client \
 first_name:string \

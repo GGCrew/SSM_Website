@@ -1,0 +1,14 @@
+<tr>
+	<th>
+		<%= admin_note.creator.name -%><br>
+		<%= admin_note.created_at -%>
+		<%- if admin_note.updated_at > admin_note.created_at -%>
+			<br>
+			<%= admin_note.updater.name -%><br>
+			<%= admin_note.updated_at -%>
+		<%- end -%>
+	</th>
+	<td>
+		<%= admin_note.note -%>
+	</td>
+</p>
