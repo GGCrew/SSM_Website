@@ -13,6 +13,33 @@
 
 ActiveRecord::Schema.define(version: 20150807000002) do
 
+  create_table "admin_communication_sub_types", force: :cascade do |t|
+    t.integer  "communication_type_id", limit: 4
+    t.string   "name",                  limit: 255
+    t.integer  "position",              limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "created_by",            limit: 4
+    t.integer  "updated_by",            limit: 4
+  end
+
+  create_table "admin_communication_types", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
+  end
+
+  create_table "admin_note_contacts", force: :cascade do |t|
+    t.integer  "admin_note_id", limit: 4
+    t.integer  "contact_id",    limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "created_by",    limit: 4
+    t.integer  "updated_by",    limit: 4
+  end
+
   create_table "admin_notes", force: :cascade do |t|
     t.integer  "noteable_id",   limit: 4
     t.string   "noteable_type", limit: 255
