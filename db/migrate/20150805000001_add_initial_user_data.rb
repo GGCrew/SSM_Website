@@ -8,7 +8,7 @@ class AddInitialUserData < ActiveRecord::Migration
 			password_confirmation:	'Randy1'
 		)
 
-		# Set default userstamp for other migrations that might run during this "rake db:migrate"
+		# Set userstamp for other migrations that might run during this "rake db:migrate"
 		User.current_user = User.first
   end
 
