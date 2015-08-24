@@ -41,13 +41,14 @@ ActiveRecord::Schema.define(version: 20150807000002) do
   end
 
   create_table "admin_notes", force: :cascade do |t|
-    t.integer  "noteable_id",   limit: 4
-    t.string   "noteable_type", limit: 255
-    t.text     "note",          limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "created_by",    limit: 4
-    t.integer  "updated_by",    limit: 4
+    t.integer  "noteable_id",           limit: 4
+    t.string   "noteable_type",         limit: 255
+    t.text     "note",                  limit: 65535
+    t.integer  "communication_type_id", limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "created_by",            limit: 4
+    t.integer  "updated_by",            limit: 4
   end
 
   add_index "admin_notes", ["noteable_type", "noteable_id"], name: "index_admin_notes_on_noteable_type_and_noteable_id", using: :btree
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150807000002) do
     t.integer  "event_type_id",      limit: 4
     t.datetime "start"
     t.datetime "end"
+    t.string   "timezone",           limit: 255
     t.boolean  "placeholder_times",  limit: 1
     t.integer  "location_id",        limit: 4
     t.integer  "booking_status_id",  limit: 4

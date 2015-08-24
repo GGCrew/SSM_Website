@@ -30,8 +30,16 @@
       <tr>
         <td><%= admin_event.client_id %></td>
         <td><%= admin_event.event_type_id %></td>
-        <td><%= admin_event.start %></td>
-        <td><%= admin_event.end %></td>
+				<td>
+					<%= admin_event.start.in_time_zone(admin_event.timezone).to_s(:us_date) %><br>
+					<%= admin_event.start.in_time_zone(admin_event.timezone).to_ampm_s %>
+					<%= admin_event.start.in_time_zone(admin_event.timezone).to_s(:timezone_abbreviation) -%>
+				</td>
+				<td>
+					<%= admin_event.end.in_time_zone(admin_event.timezone).to_s(:us_date) %><br>
+					<%= admin_event.end.in_time_zone(admin_event.timezone).to_ampm_s %>
+					<%= admin_event.start.in_time_zone(admin_event.timezone).to_s(:timezone_abbreviation) -%>
+				</td>
         <td><%= admin_event.placeholder_times %></td>
         <td><%= admin_event.location_id %></td>
         <td><%= admin_event.booking_status_id %></td>

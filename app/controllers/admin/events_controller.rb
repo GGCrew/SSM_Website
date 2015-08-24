@@ -2,6 +2,8 @@ class Admin::EventsController < ApplicationController
 
   before_action :set_admin_event, only: [:show, :edit, :update, :destroy]
 
+	around_filter :set_timezone, only: [:create, :edit, :update]
+
   # GET /admin/events
   # GET /admin/events.json
   def index
@@ -68,8 +70,19 @@ class Admin::EventsController < ApplicationController
       @admin_event = Event.find(params[:id])
     end
 
+		def set_timezone
+			Time.zone = @admin_event.timezone
+			#logger.info("set_timezone -- #{params[:action]}")
+			if ['create', 'update'].include?(params[:action])
+				if admin_event_params[:timezone]
+					Time.zone = admin_event_params[:timezone]
+				end
+			end
+			yield
+		end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_event_params
-      params.require(:event).permit(:client_id, :event_type_id, :start, :end, :placeholder_times, :location_id, :booking_status_id, :contract_status_id, :payment_status_id, :bride_first_name, :bride_last_name, :groom_first_name, :groom_last_name, :event_name, :number_of_cameras, :photo_media_id)
+      params.require(:event).permit(:client_id, :event_type_id, :start, :end, :timezone, :placeholder_times, :location_id, :booking_status_id, :contract_status_id, :payment_status_id, :bride_first_name, :bride_last_name, :groom_first_name, :groom_last_name, :event_name, :number_of_cameras, :photo_media_id)
     end
 end

@@ -5,6 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.integer :event_type_id
       t.datetime :start
       t.datetime :end
+			t.string :timezone
       t.boolean :placeholder_times
       t.integer :location_id
       t.integer :booking_status_id
