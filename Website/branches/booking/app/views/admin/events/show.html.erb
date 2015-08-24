@@ -11,7 +11,10 @@
 <h3>
 	<%= @admin_event.start.to_s(:month_dd_year) -%>
 	&mdash;
-	<%= @admin_event.start.to_ampm_s -%> &ndash; <%= @admin_event.end.to_ampm_s -%>
+	<%= @admin_event.start.in_time_zone(@admin_event.timezone).to_ampm_s -%>
+	&ndash;
+	<%= @admin_event.end.in_time_zone(@admin_event.timezone).to_ampm_s -%>
+	<%= @admin_event.start.in_time_zone(@admin_event.timezone).to_s(:timezone_abbreviation) -%>
 	<%= raw('<em>(tentative)</em>') if @admin_event.placeholder_times -%>
 </h3>
 
