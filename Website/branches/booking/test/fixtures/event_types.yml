@@ -2,12 +2,8 @@
 
 one:
   name: MyString
-  string: MyString
-  active: MyString
-  boolean: MyString
+  active: false
 
 two:
   name: MyString
-  string: MyString
-  active: MyString
-  boolean: MyString
+  active: false

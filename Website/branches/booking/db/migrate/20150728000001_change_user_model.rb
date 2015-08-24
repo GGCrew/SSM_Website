@@ -3,6 +3,7 @@ class ChangeUserModel < ActiveRecord::Migration
 		add_column	'users',	'name',							:string,	after: 'id'
 		add_column	'users',	'login',						:string,	after: 'name'
 		add_column	'users',	'password_digest',	:string,	after: 'login'
+		add_column	'users',	'timezone',					:string,	after: 'password_digest'
 		add_column	'users',	'active',						:boolean,	default: true
     add_column	'users',	'created_by',				:integer
     add_column	'users',	'updated_by',				:integer
@@ -20,6 +21,7 @@ class ChangeUserModel < ActiveRecord::Migration
 		remove_column	'users',	'name'
 		remove_column	'users',	'login'
 		remove_column	'users',	'password_digest'
+		remove_column	'users',	'timezone'
 		remove_column	'users',	'active'
     remove_column	'users',	'created_by'
     remove_column	'users',	'updated_by'
