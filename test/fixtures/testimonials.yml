@@ -2,8 +2,8 @@
 
 one:
   quote: MyText
-  by: MyString
+  from: MyString
 
 two:
   quote: MyText
-  by: MyString
+  from: MyString

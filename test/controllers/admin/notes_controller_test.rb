@@ -18,7 +18,7 @@ class Admin::NotesControllerTest < ActionController::TestCase
 
   test "should create admin_note" do
     assert_difference('Admin::Note.count') do
-      post :create, admin_note: { note: @admin_note.note, resource_id: @admin_note.resource_id, resource_type: @admin_note.resource_type }
+      post :create, admin_note: { note: @admin_note.note, noteable_id: @admin_note.noteable_id, noteable_type: @admin_note.noteable_type }
     end
 
     assert_redirected_to admin_note_path(assigns(:admin_note))
@@ -35,7 +35,7 @@ class Admin::NotesControllerTest < ActionController::TestCase
   end
 
   test "should update admin_note" do
-    patch :update, id: @admin_note, admin_note: { note: @admin_note.note, resource_id: @admin_note.resource_id, resource_type: @admin_note.resource_type }
+    patch :update, id: @admin_note, admin_note: { note: @admin_note.note, noteable_id: @admin_note.noteable_id, noteable_type: @admin_note.noteable_type }
     assert_redirected_to admin_note_path(assigns(:admin_note))
   end
 

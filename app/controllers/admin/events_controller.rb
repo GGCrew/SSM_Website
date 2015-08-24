@@ -2,7 +2,7 @@ class Admin::EventsController < ApplicationController
 
   before_action :set_admin_event, only: [:show, :edit, :update, :destroy]
 
-	around_filter :set_timezone, only: [:create, :edit, :update]
+	around_filter :set_timezone, only: [:edit, :update]
 
   # GET /admin/events
   # GET /admin/events.json
