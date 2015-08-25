@@ -10,7 +10,7 @@
 
 <h3>
 	<%= @admin_event.start.to_s(:month_dd_year) -%>
-	&mdash;
+	&nbsp;&nbsp;&nbsp;
 	<%= @admin_event.start.in_time_zone(@admin_event.timezone).to_ampm_s -%>
 	&ndash;
 	<%= @admin_event.end.in_time_zone(@admin_event.timezone).to_ampm_s -%>
@@ -21,6 +21,16 @@
 <p>
   <strong>Client:</strong>
   <%= @admin_event.client_id %>
+	<%- if @admin_event.event_type == EventType::WEDDING -%>
+		<br>
+		<strong>Bride:</strong>
+		<%= @admin_event.bride_first_name %>
+		<%= @admin_event.bride_last_name %>
+		<br>
+		<strong>Groom:</strong>
+		<%= @admin_event.groom_first_name %>
+		<%= @admin_event.groom_last_name %>
+	<%- end -%>
 </p>
 
 <p>
@@ -49,15 +59,6 @@
   <%= @admin_event.payment_status_id %>
 </p>
 
-<p>
-  <strong>Bride:</strong>
-  <%= @admin_event.bride_first_name %>
-  <%= @admin_event.bride_last_name %>
-	<br>
-  <strong>Groom:</strong>
-  <%= @admin_event.groom_first_name %>
-  <%= @admin_event.groom_last_name %>
-</p>
 
 <%= render(partial: 'admin/notes/admin_notes', object: @admin_event.admin_notes) -%>
 

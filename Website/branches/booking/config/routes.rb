@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    resources :note_contacts
-  end
-
   get 'home'		=> 'site#home',			:as => 'home'
   get 'about'		=> 'site#about',		:as => 'about'
   get 'pricing'	=> 'site#pricing',	:as => 'pricing'
@@ -26,6 +22,7 @@ Rails.application.routes.draw do
 		resource	:calendar,	:only => ['show']
 		resources :events
     resources :notes
+    resources :note_contacts
 	end
 
   # The priority is based upon order of creation: first created -> highest priority.
