@@ -15,4 +15,8 @@ class EventType < ActiveRecord::Base
 
 	default_scope { order(:position) }
 
+	#..#
+
+	WEDDING = self.where(name: 'Wedding').first
+
 end
