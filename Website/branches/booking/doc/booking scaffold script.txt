@@ -8,7 +8,7 @@ note:text
 
 rails g model event_type \
 name:string \
-order:integer \
+position:integer \
 active:boolean
 
 rails g scaffold Client \
@@ -30,12 +30,12 @@ zip:string \
 alt_first_name:string \
 alt_last_name:string \
 title:string \
-order:integer
+position:integer
 
 rails g model ContactType \
 name:string \
 active:boolean \
-order:integer
+position:integer
 
 rails g scaffold admin/events \
 client_id:integer \
@@ -61,12 +61,12 @@ active:boolean
 
 rails g scaffold Transaction \
 event_id:integer \
-order:integer
+position:integer
 
 rails g scaffold TransactionItem \
 name:string \
 active:boolean \
-order:integer
+position:integer
 
 rails g scaffold TransactionItemDetail \
 transaction_item_id:integer \
@@ -81,16 +81,16 @@ transaction_id:integer \
 transaction_item_id:integer \
 count:integer \
 override_item_price:decimal \
-order:integer
+position:integer
 
 rails g scaffold TransactionPackage \
 name:string \
 active:boolean \
-order:integer
+position:integer
 
 rails g scaffold TransactionPackageDetail \
 transaction_package_id:integer \
 transaction_item_id:integer \
 count:integer \
-order:integer
+position:integer
 

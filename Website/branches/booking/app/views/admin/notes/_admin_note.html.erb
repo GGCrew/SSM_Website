@@ -1,11 +1,15 @@
 <tr>
 	<th>
 		<%= admin_note.creator.name -%><br>
-		<%= admin_note.created_at.in_time_zone -%>
+		<%= admin_note.created_at.in_time_zone.to_s(:us_date) -%>
+		<%= admin_note.created_at.in_time_zone.to_s(:time) -%>
+		<%= admin_note.created_at.in_time_zone.to_s(:timezone_abbreviation) -%>
 		<%- if admin_note.updated_at > admin_note.created_at -%>
 			<br>
 			<%= admin_note.updater.name -%><br>
-			<%= admin_note.updated_at.in_time_zone -%>
+			<%= admin_note.updated_at.in_time_zone.to_s(:us_date) -%>
+			<%= admin_note.updated_at.in_time_zone.to_s(:time) -%>
+			<%= admin_note.updated_at.in_time_zone.to_s(:timezone_abbreviation) -%>
 		<%- end -%>
 	</th>
 	<td>
