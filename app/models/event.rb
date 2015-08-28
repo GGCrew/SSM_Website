@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
 	#..#
 
 	belongs_to	:event_type
+	belongs_to	:contract_status, class_name: 'Admin::ContractStatus'
 	belongs_to	:creator,	class_name: 'User',	foreign_key: :created_by
 	belongs_to	:updater,	class_name: 'User',	foreign_key: :updated_by
 
