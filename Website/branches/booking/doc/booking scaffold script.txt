@@ -55,9 +55,17 @@ event_name:string \
 number_of_cameras:integer \
 photo_media_id:integer
 
-rails g scaffold admin/contract_status \
+rails g model admin/booking_status \
 name:string \
-position:integer \
+position:integer
+
+rails g model admin/contract_status \
+name:string \
+position:integer
+
+rails g model admin/payment_status \
+name:string \
+position:integer
 
 rails g scaffold Location \
 name:string \

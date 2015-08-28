@@ -1,6 +1,6 @@
-class CreateAdminContractStatuses < ActiveRecord::Migration
+class CreateAdminPaymentStatuses < ActiveRecord::Migration
   def change
-    create_table :admin_contract_statuses do |t|
+    create_table :admin_payment_statuses do |t|
       t.string :name
       t.integer :position
 

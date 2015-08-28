@@ -5,11 +5,11 @@ class AddInitialUserData < ActiveRecord::Migration
 			name: 'Randy',
 			login: 'randy',
 			password:	'Randy1',
-			password_confirmation:	'Randy1'
+			password_confirmation:	'Randy1',
 			timezone: 'Pacific Time (US & Canada)'
 		)
 
-		# Set userstamp for other migrations that might run during this "rake db:migrate"
+		# Set userstamp for other migrations that might run during the current "rake db:migrate" task
 		User.current_user = User.first
   end
 

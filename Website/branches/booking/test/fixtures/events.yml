@@ -7,9 +7,9 @@ one:
   end: 2015-08-05 00:09:33
   placeholder_times: false
   location_id: 1
-  booking_status_id: 1
+  booking_status_id: one
   contract_status: one
-  payment_status_id: 1
+  payment_status_id: one
   bride_first_name: MyString
   bride_last_name: MyString
   groom_first_name: MyString
@@ -25,9 +25,9 @@ two:
   end: 2015-08-05 00:09:33
   placeholder_times: true
   location_id: 1
-  booking_status_id: 1
+  booking_status_id: two
   contract_status: two
-  payment_status_id: 1
+  payment_status_id: two
   bride_first_name: MyString
   bride_last_name: MyString
   groom_first_name: MyString
