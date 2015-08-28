@@ -55,13 +55,13 @@
 		<div class="status">
 			<p>
 				<strong>Booking status:</strong>
-				<%= @admin_event.booking_status_id %>
+				<%= @admin_event.booking_status.name %>
 				<br>
 				<strong>Contract status:</strong>
 				<%= @admin_event.contract_status.name -%>
 				<br>
 				<strong>Payment status:</strong>
-				<%= @admin_event.payment_status_id %>
+				<%= @admin_event.payment_status.name %>
 			</p>
 		</div>
 
