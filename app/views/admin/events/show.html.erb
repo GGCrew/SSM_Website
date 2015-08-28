@@ -1,66 +1,73 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-	<%= @admin_event.title -%>
-</h1>
+<div class="event">
+	<h1>
+		<%= @admin_event.title -%>
+	</h1>
 
-<h2>
-	<%= @admin_event.event_type.name %>
-</h2>
+	<h2>
+		<%= @admin_event.event_type.name %>
+	</h2>
 
-<h3>
-	<%= @admin_event.start.to_s(:month_dd_year) -%>
-	&nbsp;&nbsp;&nbsp;
-	<%= @admin_event.start.in_time_zone(@admin_event.timezone).to_ampm_s -%>
-	&ndash;
-	<%= @admin_event.end.in_time_zone(@admin_event.timezone).to_ampm_s -%>
-	<%= @admin_event.start.in_time_zone(@admin_event.timezone).to_s(:timezone_abbreviation) -%>
-	<%= raw('<em>(tentative)</em>') if @admin_event.placeholder_times -%>
-</h3>
+	<h3>
+		<%= @admin_event.start.to_s(:month_dd_year) -%>
+		&nbsp;&nbsp;&nbsp;
+		<%= @admin_event.start.in_time_zone(@admin_event.timezone).to_ampm_s -%>
+		&ndash;
+		<%= @admin_event.end.in_time_zone(@admin_event.timezone).to_ampm_s -%>
+		<%= @admin_event.start.in_time_zone(@admin_event.timezone).to_s(:timezone_abbreviation) -%>
+		<%= raw('<em>(tentative)</em>') if @admin_event.placeholder_times -%>
+	</h3>
 
-<p>
-  <strong>Client:</strong>
-  <%= @admin_event.client_id %>
-	<%- if @admin_event.event_type == EventType::WEDDING -%>
-		<br>
-		<strong>Bride:</strong>
-		<%= @admin_event.bride_first_name %>
-		<%= @admin_event.bride_last_name %>
-		<br>
-		<strong>Groom:</strong>
-		<%= @admin_event.groom_first_name %>
-		<%= @admin_event.groom_last_name %>
-	<%- end -%>
-</p>
+	<div class="event_subsection">
+		<div class="details">
+			<p>
+				<strong>Client:</strong>
+				<%= @admin_event.client_id %>
+				<%- if @admin_event.event_type == EventType::WEDDING -%>
+					<br>
+					<strong>Bride:</strong>
+					<%= @admin_event.bride_first_name %>
+					<%= @admin_event.bride_last_name %>
+					<br>
+					<strong>Groom:</strong>
+					<%= @admin_event.groom_first_name %>
+					<%= @admin_event.groom_last_name %>
+				<%- end -%>
+			</p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @admin_event.location_id %>
-</p>
+			<p>
+				<strong>Location:</strong>
+				<%= @admin_event.location_id %>
+			</p>
 
-<p>
-  <strong>Number of cameras:</strong>
-  <%= @admin_event.number_of_cameras %>
-</p>
+			<p>
+				<strong>Number of cameras:</strong>
+				<%= @admin_event.number_of_cameras %>
+			</p>
 
-<p>
-  <strong>Photo media:</strong>
-  <%= @admin_event.photo_media_id %>
-</p>
+			<p>
+				<strong>Photo media:</strong>
+				<%= @admin_event.photo_media_id %>
+			</p>
+		</div>
 
-<p>
-  <strong>Booking status:</strong>
-  <%= @admin_event.booking_status_id %>
-	<br>
-	<strong>Contract status:</strong>
-  <%= @admin_event.contract_status_id %>
-	<br>
-  <strong>Payment status:</strong>
-  <%= @admin_event.payment_status_id %>
-</p>
+		<div class="status">
+			<p>
+				<strong>Booking status:</strong>
+				<%= @admin_event.booking_status_id %>
+				<br>
+				<strong>Contract status:</strong>
+				<%= @admin_event.contract_status_id %>
+				<br>
+				<strong>Payment status:</strong>
+				<%= @admin_event.payment_status_id %>
+			</p>
+		</div>
 
-
-<%= render(partial: 'admin/notes/admin_notes', object: @admin_event.admin_notes) -%>
+		<%= render(partial: 'admin/notes/admin_notes', object: @admin_event.admin_notes) -%>
+	</div>
+</div>
 
 <%= link_to 'Edit', edit_admin_event_path(@admin_event) %> |
 <%= link_to 'Back', admin_events_path %>
