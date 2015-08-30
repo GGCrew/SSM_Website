@@ -19,7 +19,7 @@
   </div>
   <div class="field">
     <%= f.label :event_type_id %><br>
-    <%= f.number_field :event_type_id %>
+    <%= f.collection_select :event_type_id, EventType.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :start %><br>
@@ -40,15 +40,15 @@
   </div>
   <div class="field">
     <%= f.label :booking_status_id %><br>
-    <%= f.number_field :booking_status_id %>
+    <%= f.collection_select :booking_status_id, Admin::BookingStatus.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :contract_status_id %><br>
-    <%= f.number_field :contract_status_id %>
+    <%= f.collection_select :contract_status_id, Admin::ContractStatus.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :payment_status_id %><br>
-    <%= f.number_field :payment_status_id %>
+    <%= f.collection_select :payment_status_id, Admin::PaymentStatus.all, :id, :name %>
   </div>
   <div class="field">
     <%= f.label :bride_first_name %><br>
