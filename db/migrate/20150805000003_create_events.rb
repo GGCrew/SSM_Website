@@ -17,7 +17,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :groom_last_name
       t.string :event_name
       t.integer :number_of_cameras
-      t.integer :photo_media_id
+      t.integer :photo_medium_id
 
       t.timestamps null: false
 			t.userstamps

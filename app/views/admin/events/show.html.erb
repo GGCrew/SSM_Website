@@ -19,6 +19,11 @@
 		<%= raw('<em>(tentative)</em>') if @admin_event.placeholder_times -%>
 	</h3>
 
+	<h4>
+		<strong>Location:</strong>
+		<%= @admin_event.location_id %>
+	</h4>
+
 	<div class="event_subsection">
 		<div class="details">
 			<p>
@@ -37,18 +42,13 @@
 			</p>
 
 			<p>
-				<strong>Location:</strong>
-				<%= @admin_event.location_id %>
-			</p>
-
-			<p>
 				<strong>Number of cameras:</strong>
 				<%= @admin_event.number_of_cameras %>
 			</p>
 
 			<p>
-				<strong>Photo media:</strong>
-				<%= @admin_event.photo_media_id %>
+				<strong>Photo medium:</strong>
+				<%= @admin_event.photo_medium_id %>
 			</p>
 		</div>
 

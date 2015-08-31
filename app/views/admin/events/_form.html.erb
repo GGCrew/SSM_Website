@@ -26,46 +26,58 @@
     <%= f.datetime_select :start %>
 		<%= f.time_zone_select :timezone, ActiveSupport::TimeZone.us_zones, default: "Pacific Time (US & Canada)" -%>
   </div>
-  <div class="field">
-    <%= f.label :end %><br>
-    <%= f.datetime_select :end %>
-  </div>
-  <div class="field">
-    <%= f.label :placeholder_times %><br>
-    <%= f.check_box :placeholder_times %>
-  </div>
+	<div class="row">
+		<div class="field">
+			<%= f.label :end %><br>
+			<%= f.datetime_select :end %>
+		</div>
+		<div class="field">
+			<%= f.label :placeholder_times %><br>
+			<%= f.check_box :placeholder_times %>
+		</div>
+	</div>
   <div class="field">
     <%= f.label :location_id %><br>
     <%= f.number_field :location_id %>
   </div>
-  <div class="field">
-    <%= f.label :booking_status_id %><br>
-    <%= f.collection_select :booking_status_id, Admin::BookingStatus.all, :id, :name %>
-  </div>
-  <div class="field">
-    <%= f.label :contract_status_id %><br>
-    <%= f.collection_select :contract_status_id, Admin::ContractStatus.all, :id, :name %>
-  </div>
-  <div class="field">
-    <%= f.label :payment_status_id %><br>
-    <%= f.collection_select :payment_status_id, Admin::PaymentStatus.all, :id, :name %>
-  </div>
-  <div class="field">
-    <%= f.label :bride_first_name %><br>
-    <%= f.text_field :bride_first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :bride_last_name %><br>
-    <%= f.text_field :bride_last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :groom_first_name %><br>
-    <%= f.text_field :groom_first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :groom_last_name %><br>
-    <%= f.text_field :groom_last_name %>
-  </div>
+	
+	<div class="row">
+		<div class="field">
+			<%= f.label :booking_status_id %><br>
+			<%= f.collection_select :booking_status_id, Admin::BookingStatus.all, :id, :name %>
+		</div>
+		<div class="field">
+			<%= f.label :contract_status_id %><br>
+			<%= f.collection_select :contract_status_id, Admin::ContractStatus.all, :id, :name %>
+		</div>
+		<div class="field">
+			<%= f.label :payment_status_id %><br>
+			<%= f.collection_select :payment_status_id, Admin::PaymentStatus.all, :id, :name %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="field">
+			<%= f.label :bride_first_name %><br>
+			<%= f.text_field :bride_first_name %>
+		</div>
+		<div class="field">
+			<%= f.label :bride_last_name %><br>
+			<%= f.text_field :bride_last_name %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="field">
+			<%= f.label :groom_first_name %><br>
+			<%= f.text_field :groom_first_name %>
+		</div>
+		<div class="field">
+			<%= f.label :groom_last_name %><br>
+			<%= f.text_field :groom_last_name %>
+		</div>
+	</div>
+
   <div class="field">
     <%= f.label :event_name %><br>
     <%= f.text_field :event_name %>
@@ -75,8 +87,8 @@
     <%= f.number_field :number_of_cameras %>
   </div>
   <div class="field">
-    <%= f.label :photo_media_id %><br>
-    <%= f.number_field :photo_media_id %>
+    <%= f.label :photo_medium_id %><br>
+    <%= f.number_field :photo_medium_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

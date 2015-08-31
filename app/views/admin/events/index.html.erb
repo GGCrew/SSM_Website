@@ -20,7 +20,7 @@
       <th>Groom last name</th>
       <th>Event name</th>
       <th>Number of cameras</th>
-      <th>Photo media</th>
+      <th>Photo medium</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -38,7 +38,7 @@
 				<td>
 					<%= admin_event.end.in_time_zone(admin_event.timezone).to_s(:us_date) %><br>
 					<%= admin_event.end.in_time_zone(admin_event.timezone).to_ampm_s %>
-					<%= admin_event.start.in_time_zone(admin_event.timezone).to_s(:timezone_abbreviation) -%>
+					<%= admin_event.end.in_time_zone(admin_event.timezone).to_s(:timezone_abbreviation) -%>
 				</td>
         <td><%= admin_event.placeholder_times %></td>
         <td><%= admin_event.location_id %></td>
@@ -51,7 +51,7 @@
         <td><%= admin_event.groom_last_name %></td>
         <td><%= admin_event.event_name %></td>
         <td><%= admin_event.number_of_cameras %></td>
-        <td><%= admin_event.photo_media_id %></td>
+        <td><%= admin_event.photo_medium_id %></td>
         <td><%= link_to 'Show', admin_event_path(admin_event) %></td>
         <td><%= link_to 'Edit', edit_admin_event_path(admin_event) %></td>
         <td><%= link_to 'Destroy', admin_event_path(admin_event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
