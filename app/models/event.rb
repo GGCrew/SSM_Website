@@ -31,14 +31,23 @@ class Event < ActiveRecord::Base
 
 	#..#
 
+	DEFAULTS = {
+		event_type_id: EventType::DEFAULT.id,
+		booking_status_id: Admin::BookingStatus::DEFAULT.id,
+		contract_status_id: Admin::ContractStatus::DEFAULT.id,
+		payment_status_id: Admin::PaymentStatus::DEFAULT.id,
+		photo_medium_id: Admin::PhotoMedium::DEFAULT.id
+	}
+
+	#..#
+		
 	def title
 		return self.event_name unless self.event_name.blank?
 
 		names = [self.bride_first_name, self.groom_first_name]
 		names.compact!
 		return names.join(' & ') unless names.empty?
-
-		
 	end
+
 
 end

@@ -17,6 +17,7 @@ class EventType < ActiveRecord::Base
 
 	#..#
 
+	DEFAULT = self.order(:position).limit(1).first
 	WEDDING = self.where(name: 'Wedding').first
 
 end
