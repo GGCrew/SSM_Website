@@ -88,7 +88,10 @@
   </div>
   <div class="field">
     <%= f.label :photo_medium_id %><br>
-    <%= f.number_field :photo_medium_id %>
+		<%- for photo_medium in Admin::PhotoMedium.all -%>
+			<%= f.radio_button :photo_medium_id, photo_medium.id %>
+			<%= f.label "photo_medium_id_#{photo_medium.id}", photo_medium.name -%>
+		<%- end -%>
   </div>
   <div class="actions">
     <%= f.submit %>
