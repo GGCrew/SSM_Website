@@ -7,16 +7,16 @@ one:
   end: 2015-08-05 00:09:33
   placeholder_times: false
   location_id: 1
-  booking_status_id: one
+  booking_status: one
   contract_status: one
-  payment_status_id: one
+  payment_status: one
   bride_first_name: MyString
   bride_last_name: MyString
   groom_first_name: MyString
   groom_last_name: MyString
   event_name: MyString
   number_of_cameras: 1
-  photo_media_id: 1
+  photo_medium: one
 
 two:
   client_id: 1
@@ -25,13 +25,13 @@ two:
   end: 2015-08-05 00:09:33
   placeholder_times: true
   location_id: 1
-  booking_status_id: two
+  booking_status: two
   contract_status: two
-  payment_status_id: two
+  payment_status: two
   bride_first_name: MyString
   bride_last_name: MyString
   groom_first_name: MyString
   groom_last_name: MyString
   event_name: MyString
-  number_of_cameras: 1
-  photo_media_id: 1
+  number_of_cameras: 2
+  photo_medium: two

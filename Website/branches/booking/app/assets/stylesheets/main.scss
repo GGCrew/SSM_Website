@@ -437,3 +437,15 @@ table {
 	float: right;
 	clear: right;
 }
+
+
+form {
+
+	.row {
+		display: inline-block;
+
+		.field {
+			float: left;
+		}
+	}
+}

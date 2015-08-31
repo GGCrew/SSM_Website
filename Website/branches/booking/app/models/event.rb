@@ -8,6 +8,7 @@ class Event < ActiveRecord::Base
 	belongs_to	:booking_status,	class_name: 'Admin::BookingStatus'
 	belongs_to	:contract_status,	class_name: 'Admin::ContractStatus'
 	belongs_to	:payment_status,	class_name: 'Admin::PaymentStatus'
+	belongs_to	:photo_medium,		class_name: 'Admin::PhotoMedium'
 	belongs_to	:creator,	class_name: 'User',	foreign_key: :created_by
 	belongs_to	:updater,	class_name: 'User',	foreign_key: :updated_by
 

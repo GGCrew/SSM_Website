@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828000006) do
+ActiveRecord::Schema.define(version: 20150830000008) do
 
   create_table "admin_booking_statuses", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(version: 20150828000006) do
     t.integer  "updated_by", limit: 4
   end
 
+  create_table "admin_photo_media", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "position",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
+  end
+
   create_table "event_types", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.integer  "position",   limit: 4
@@ -107,7 +116,7 @@ ActiveRecord::Schema.define(version: 20150828000006) do
     t.string   "groom_last_name",    limit: 255
     t.string   "event_name",         limit: 255
     t.integer  "number_of_cameras",  limit: 4
-    t.integer  "photo_media_id",     limit: 4
+    t.integer  "photo_medium_id",    limit: 4
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "created_by",         limit: 4
