@@ -6,4 +6,12 @@ class Admin::PhotoMedium < ActiveRecord::Base
 
 	has_many	:events
 
+	#..#
+
+	default_scope { order(:position) }
+
+	#..#
+
+	DEFAULT = self.order(:position).limit(1).first
+
 end

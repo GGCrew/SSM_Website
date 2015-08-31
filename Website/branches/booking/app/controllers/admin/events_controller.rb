@@ -17,7 +17,7 @@ class Admin::EventsController < ApplicationController
 
   # GET /admin/events/new
   def new
-    @admin_event = Event.new
+    @admin_event = Event.new(Event::DEFAULTS)
   end
 
   # GET /admin/events/1/edit
